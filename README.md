@@ -4,9 +4,9 @@
 ## Requirements
 - Node.js LTS version 10: <https://nodejs.org/en/download/>
 - Install mbt
-```
-npm install -g mbt
-```
+    ```
+    npm install -g mbt
+    ```
 - The Cloud Foundry command line tool cf : <https://docs.cloudfoundry.org/cf-cli/install-go-cli.html> [Tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
 - The Multi-Target Application Cloud Foundry CLI Plugin (CF MTA Plugin) : <https://github.com/cloudfoundry-incubator/multiapps-cli-plugin>
     ```
