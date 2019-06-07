@@ -1,0 +1,25 @@
+ID: html5_router
+_schema-version: "2.1"
+version: 0.0.1
+modules:
+  - name: html5_app_repo_router
+    type: approuter.nodejs
+    path: router
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: html5_repo_runtime
+      - name: uaa_app_router
+resources:
+  - name: html5_repo_runtime
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+    type: org.cloudfoundry.managed-service
+  - name: uaa_app_router
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service
