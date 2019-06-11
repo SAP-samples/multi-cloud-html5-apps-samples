@@ -19,20 +19,20 @@
     With regards to `Make`: if you are running macOS or Linux it's likely that you'll already have make installed. For Windows users, please use the [Chocolatey](https://chocolatey.org/) package manager to install [make](https://chocolatey.org/packages/make) via `choco install make`. After installation, please check you can start the executable (`sqlite3`) from the terminal.
 
 ## Download and Installation
-1. Download
+1. Download the source code
     ```
     git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/html5-app-repo-router
     cd html5-app-repo-router
     ```
-2. Login
-    ```
-    cf login -a https://api.cf.eu10.hana.ondemand.com
-    ```
-3. Build
+2. Build the project
     ```
     make -f Makefile.mta p=cf
     ```
-4. Deployment
+3. Log in to the Cloud Foundry space
+    ```
+    cf login -a https://api.cf.eu10.hana.ondemand.com
+    ```
+4. Deploy the project
     ```
     cf deploy mta_archives/html5_router_0.0.1.mtar
     ```
