@@ -44,6 +44,20 @@ You can change path to the default app if you wish. To do so, edit the `welcomeF
 
 You might encounter a `503 Service Temporarily Unavailable` error when there is no HTML5 application which the defined name in the application repository.
 
+## HTML5 Apps Deployment
+The application repository can hold any UI project independent of the used framework.
+Leverage the following commands of the [Cloud Foundry CLI plugin](https://sap.github.io/cf-html5-apps-repo-cli-plugin/) to uplaod UI apps to the application repository.
+```bash
+mkdir myapp
+cd myapp
+echo '{"sap.app":{"id":"myapp","applicationVersion":{"version": "1.0.0"}}}' > manifest.json
+echo '{"routes":[{"source":"^(.*)","target": "$1","service":"html5-apps-repo-rt"}]}' > xs-app.json
+cf html5-push
+```
+
+
+This blog post describes how to [upload a react-based application](https://blogs.sap.com/2019/06/03/cloudfoundryfun-5-play-asteroids-powered-by-react-secured-by-sap-cloud-platform/) to the HTML5 application repository.
+
 ## Known Issues
 None so far :)
 
