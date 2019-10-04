@@ -2,7 +2,7 @@
 
 
 ## Requirements
-- [Create](https://developers.sap.com/tutorials/cp-cf-create-account.html) a Cloud Foundry trial account in the region Europe (Frankfurt)
+- [Create](https://developers.sap.com/tutorials/hcp-create-trial-account.html) an SAP Cloud Platform trial account in the region Europe (Frankfurt)
 - Node.js LTS version 10: <https://nodejs.org/en/download/>
 - Install mbt
     ```
@@ -16,7 +16,7 @@
     ```
 - Make : <https://www.gnu.org/software/make/>
 
-    With regards to `Make`: if you are running macOS or Linux it's likely that you'll already have make installed. For Windows users, please use the [Chocolatey](https://chocolatey.org/) package manager to install [make](https://chocolatey.org/packages/make) via `choco install make`. After installation, please check you can start the executable (`sqlite3`) from the terminal.
+    With regards to `Make`: if you are running macOS or Linux it's likely that you'll already have make installed. For Windows users, please use the [Chocolatey](https://chocolatey.org/) package manager to install [make](https://chocolatey.org/packages/make) via `choco install make`. After installation, please check you can start the executable (`make`) from the terminal.
 
 ## Download and Installation
 1. Download the source code

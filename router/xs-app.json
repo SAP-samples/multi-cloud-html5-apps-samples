@@ -1,9 +1,6 @@
 {
-  "welcomeFile": "/Reacteroids",
+  "welcomeFile": "/webcomponents",
   "authenticationMethod": "route",
-  "logout": {
-    "logoutEndpoint": "/do/logout"
-  },
   "routes": [
     {
       "source": "^(.*)$",
