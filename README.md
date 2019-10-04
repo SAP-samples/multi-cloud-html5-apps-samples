@@ -2,7 +2,7 @@
 
 
 ## Requirements
-- [Create](https://developers.sap.com/tutorials/cp-cf-create-account.html) a Cloud Foundry trial account in the region Europe (Frankfurt)
+- [Create](https://developers.sap.com/tutorials/hcp-create-trial-account.html) an SAP Cloud Platform trial account in the region Europe (Frankfurt)
 - Node.js LTS version 10: <https://nodejs.org/en/download/>
 - Install mbt
     ```
