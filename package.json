@@ -6,5 +6,6 @@
 	},
 	"scripts": {
 		"build": "mbt build -p=cf"
-	}
+	},
+	"version": "1.0.0"
 }
