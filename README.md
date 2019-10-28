@@ -22,11 +22,12 @@
     ```
 2. Build the project
     ```
-    mbt build -p=cf
+    npm install
+    npm run build
     ```
 3. Deploy the project
     ```
-    cf deploy mta_archives/html5_router_0.0.1.mtar
+    cf deploy mta_archives/html5_router_1.0.0.mtar
     ```
 
 You can find the URL of the app router after the deployment has been successful in the console output. It will have the following structure: <https://[globalaccount-id]-[subaccount-id]-dev-html5-app-repo-router.cfapps.eu10.hana.ondemand.com>.
