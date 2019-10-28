@@ -4,12 +4,8 @@
 ## Requirements
 - [Create](https://developers.sap.com/tutorials/hcp-create-trial-account.html) an SAP Cloud Platform trial account in the region Europe (Frankfurt)
 - Node.js LTS version 10: <https://nodejs.org/en/download/>
-- Install mbt
-    ```
-    npm install -g mbt
-    ```
-- The Cloud Foundry command line tool cf : <https://docs.cloudfoundry.org/cf-cli/install-go-cli.html> [Tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
-- The Multi-Target Application Cloud Foundry CLI Plugin (CF MTA Plugin) : <https://github.com/cloudfoundry-incubator/multiapps-cli-plugin>
+- The Cloud Foundry command line tool cf : [Tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
+- The Multi-Target Application Cloud Foundry CLI [Plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin) (CF MTA Plugin) : 
     ```
     cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org
     cf install-plugin multiapps
@@ -26,15 +22,12 @@
     ```
 2. Build the project
     ```
-    make -f Makefile.mta p=cf
+    npm install
+    npm run build
     ```
-3. Log in to the Cloud Foundry space
+3. Deploy the project
     ```
-    cf login -a https://api.cf.eu10.hana.ondemand.com
-    ```
-4. Deploy the project
-    ```
-    cf deploy mta_archives/html5_router_0.0.1.mtar
+    cf deploy mta_archives/html5_router_1.0.0.mtar
     ```
 
 You can find the URL of the app router after the deployment has been successful in the console output. It will have the following structure: <https://[globalaccount-id]-[subaccount-id]-dev-html5-app-repo-router.cfapps.eu10.hana.ondemand.com>.

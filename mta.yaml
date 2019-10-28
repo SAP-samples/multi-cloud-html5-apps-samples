@@ -1,6 +1,6 @@
 ID: html5_router
 _schema-version: "2.1"
-version: 0.0.1
+version: 1.0.0
 modules:
   - name: html5_app_repo_router
     type: approuter.nodejs

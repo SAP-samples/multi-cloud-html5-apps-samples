@@ -1,10 +1,11 @@
 {
-	"name": "appouter",
+	"name": "html5-app-repo-router",
 	"description": "Node.js based application router service for html5-apps",
 	"dependencies": {
-		"@sap/approuter": "^6.5.1"
+		"mbt": "^0.3.3"
 	},
 	"scripts": {
-		"start": "node node_modules/@sap/approuter/approuter.js"
-	}
+		"build": "mbt build -p=cf"
+	},
+	"version": "1.0.0"
 }
