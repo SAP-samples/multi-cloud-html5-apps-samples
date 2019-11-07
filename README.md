@@ -17,7 +17,7 @@
 ## Download and Installation
 1. Download the source code
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/html5-app-repo-router
+    git clone https://github.com/SAP-samples/html5-app-repo-router
     cd html5-app-repo-router
     ```
 2. Build the project
