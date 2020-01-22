@@ -2,7 +2,7 @@
 	"name": "appouter",
 	"description": "Node.js based application router service for html5-apps",
 	"dependencies": {
-		"@sap/approuter": "^6.5.1"
+		"@sap/approuter": "^6.7.1"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js"
