@@ -1,0 +1,11 @@
+{
+	"name": "approuter_destination_uaa_html5",
+	"description": "Node.js based application router service for html5-apps",
+	"dependencies": {
+		"mbt": "^1.0.16"
+	},
+	"scripts": {
+		"build": "mbt build"
+	},
+	"version": "1.0.0"
+}

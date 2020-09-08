@@ -1,0 +1,82 @@
+_schema-version: "3.2"
+ID: hello-world
+version: 1.0.0
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install
+
+modules:
+  - name: hello-world-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: uaa_hello-world
+        parameters:
+          service-key:
+            name: uaa_hello-world-key
+      - name: hello-world_html_repo_host
+        parameters:
+          service-key:
+            name: hello-world_html_repo_host-key
+      - name: hello-world-destination-service
+        parameters:
+          content:
+            subaccount:
+              destinations:
+                - Name: my_service_hello_world_html_repo_host
+                  ServiceInstanceName: hello-world-html5-app-host-service
+                  ServiceKeyName: hello-world_html_repo_host-key
+                  sap.cloud.service: my.service
+                - Authentication: OAuth2UserTokenExchange
+                  Name: my_service_uaa_hello_world
+                  ServiceInstanceName: hello-world-xsuaa-service
+                  ServiceKeyName: uaa_hello-world-key
+                  sap.cloud.service: my.service
+              existing_destinations_policy: update
+          content-target: true
+    build-parameters:
+      no-source: true
+  - name: hello-world_ui_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: hello-world_html_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - HTML5Module-content.zip
+          name: HTML5Module
+          target-path: resources/
+  - name: HTML5Module
+    type: html5
+    path: HTML5Module
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+resources:
+  - name: hello-world-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-name: hello-world-destination-service
+      service-plan: lite
+  - name: hello-world_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: hello-world-html5-app-host-service
+      service-plan: app-host
+  - name: uaa_hello-world
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-name: hello-world-xsuaa-service
+      service-plan: application

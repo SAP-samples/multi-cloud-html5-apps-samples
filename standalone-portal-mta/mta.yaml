@@ -1,0 +1,64 @@
+ID: standalone-portal-mta
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: standaloneportalmta
+    type: nodejs
+    path: router
+    parameters:
+      disk-quota: 512M
+      memory: 512M
+    requires:
+      - name: standaloneportalmta_destination
+      - name: standaloneportalmta_html5_repo_runtime
+      - name: standaloneportalmta_uaa
+      - name: standaloneportalmta_portal
+  - name: webapp_deployer
+    type: com.sap.application.content
+    path: deployer
+    requires:
+      - name: standaloneportalmta_html5_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+  - name: standaloneportalmta_launchpad_deployer
+    type: com.sap.portal.content
+    path: launchpad
+    deployed-after:
+      - standaloneportalmta_deployer
+    requires:
+      - name: standaloneportalmta_portal
+      - name: standaloneportalmta_html5_repo_host
+      - name: standaloneportalmta_uaa
+resources:
+  - name: standaloneportalmta_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+  - name: standaloneportalmta_html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 2
+  - name: standaloneportalmta_html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+  - name: standaloneportalmta_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+  - name: standaloneportalmta_portal
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: standard
+      service: portal

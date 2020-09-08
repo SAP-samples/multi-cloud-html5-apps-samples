@@ -1,0 +1,8 @@
+{
+  "welcomeFile": "/cp.portal",
+  "authenticationMethod": "none",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": []
+}

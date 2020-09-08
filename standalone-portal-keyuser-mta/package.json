@@ -1,0 +1,14 @@
+{
+  "name": "standalone-portal-mta",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "mbt build",
+    "deploy:cf": "cross-var cf deploy mta_archives/standalone-portal-mta_$npm_package_version.mtar",
+    "deploy": "run-s build deploy:cf"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "cross-var": "^1.1.0",
+    "mbt": "^1.0.16"
+  }
+}

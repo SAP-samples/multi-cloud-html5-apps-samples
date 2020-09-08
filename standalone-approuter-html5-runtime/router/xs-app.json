@@ -1,0 +1,5 @@
+{
+  "welcomeFile": "/helloworld/index.html",
+  "authenticationMethod": "none",
+  "routes": []
+}
