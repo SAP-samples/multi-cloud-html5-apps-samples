@@ -26,14 +26,20 @@ modules:
     build-parameters:
       build-result: resources
   - name: standaloneportalmta_launchpad_deployer
-    type: com.sap.portal.content
+    type: com.sap.application.content
     path: launchpad
     deployed-after:
       - standaloneportalmta_deployer
     requires:
-      - name: standaloneportalmta_portal
       - name: standaloneportalmta_html5_repo_host
       - name: standaloneportalmta_uaa
+      - name: standaloneportalmta_portal
+        parameters:
+          content-target: true
+          service-key:
+            name: content-deploy-key
+            config:
+              content-endpoint: developer
 resources:
   - name: standaloneportalmta_destination
     type: org.cloudfoundry.managed-service
