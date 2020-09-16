@@ -67,7 +67,8 @@ For information about how to upload a react-based application to the HTML5 Appli
 
 In contrast to the examples above, there is no application router, and therefore, no application runtime is needed for these projects. The advantage is a lower total cost of ownership (TCO) and that there is no need to update the application router manually. 
 
-- [HTML5 app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-mta-hello-world)
+- [A basic HTML5 app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-basic-mta)
+- [A Fiori app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-fiori-mta)
 
 
 ## Known Issues

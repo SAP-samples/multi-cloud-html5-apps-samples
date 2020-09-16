@@ -1,4 +1,4 @@
-# App on HTML5 Application Runtime managed by SAP Cloud Platform with XSUAA- and Destination Service
+# Fiori app that is managed by SAP Cloud Platform with XSUAA service and destination service
 
 ## Diagram
 
@@ -9,7 +9,7 @@
 
 This is an example of an HTML5 app that is managed by SAP Cloud Platform. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
 
-The web app that is contained in the `uimodule.zip` needs to define the following properties in the `manifest.json` file. Otherwise, the correspoding values in the `mta.yaml` descriptor need to be updated as well.
+The web app that is contained in the `uimodule.zip` defines the following properties in the `manifest.json` file. Otherwise, the correspoding values in the `mta.yaml` descriptor need to be updated as well.
 
 ```JSON
 {
@@ -43,7 +43,7 @@ The web app that is contained in the `uimodule.zip` needs to define the followin
     cf deploy mta_archives/managed_launchpad_1.0.0.mtar
     ```
 
-If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/[cloudServiceWithoutDots].[namespaceIdWithoutDots]>
+If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/cloudservice.commyorgFLP/flpSandbox.html#Shell-home>
 
 ## Check the Result
 
