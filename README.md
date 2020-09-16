@@ -47,18 +47,18 @@ For information about how to upload a react-based application to the HTML5 Appli
 
 ## HTML5 Apps Running on a Standalone Application Router
 
-- [App directly embedded into Cloud Foundry environment](standalone-approuter-html5-local-dir/)
+- [Basic app directly embedded into Cloud Foundry environment](standalone-approuter-html5-local-dir/)
 
 
-- [App stored on HTML5 Application Repository](standalone-approuter-html5-runtime)
+- [Basic App stored on HTML5 Application Repository](standalone-approuter-html5-runtime)
 
-- [App stored on HTML5 Application Repository, using  XSUAA service, and destination service](standalone-approuter-html5-runtime-mta-hello-world)
-
-
-- [App integrated with SAP Cloud Platform Portal](standalone-portal-mta)
+- [Basic App stored on HTML5 Application Repository, using  XSUAA service, and destination service](standalone-approuter-html5-runtime-mta-hello-world)
 
 
-- [App integrated with SAP Cloud Platform Portal  and  using UI5 flexibility service for key users](standalone-portal-keyuser-mta)
+- [Fiori app integrated with SAP Cloud Platform Portal](standalone-portal-mta)
+
+
+- [Fiori app integrated with SAP Cloud Platform Portal  and  using UI5 flexibility service for key users](standalone-portal-keyuser-mta)
 
 
 
@@ -67,8 +67,8 @@ For information about how to upload a react-based application to the HTML5 Appli
 
 In contrast to the examples above, there is no application router, and therefore, no application runtime is needed for these projects. The advantage is a lower total cost of ownership (TCO) and that there is no need to update the application router manually. 
 
-- [A basic HTML5 app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-basic-mta)
-- [A Fiori app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-fiori-mta)
+- [Basic HTML5 app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-basic-mta)
+- [Fiori app that is managed by SAP Cloud Platform with XSUAA service and destination service](managed-html5-runtime-fiori-mta)
 
 
 ## Known Issues
