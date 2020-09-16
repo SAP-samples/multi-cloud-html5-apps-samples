@@ -1,0 +1,63 @@
+ID: managed_launchpad
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: webapp_deployer
+    type: com.sap.application.content
+    path: deployer
+    requires:
+      - name: managed_launchpad_html5_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+  - name: managed_launchpad-destination-content
+    type: com.sap.application.content
+    requires:
+    - name: managed_launchpad_uaa
+      parameters:
+        service-key:
+          name: managed_launchpad_uaa-key
+    - name: managed_launchpad_html5_repo_host
+      parameters:
+        service-key:
+          name: managed_launchpad_html5_repo_host-key
+    - name: managed_launchpad_destination
+      parameters:
+        content:
+          subaccount:
+            destinations:
+            - Name: cloud.service
+              ServiceInstanceName: managed_launchpad_html5_repo_host
+              ServiceKeyName: managed_launchpad_html5_repo_host-key
+              sap.cloud.service: cloud.service
+            - Name: html5apps-uaa-html5apps
+              Authentication: OAuth2UserTokenExchange
+              ServiceInstanceName: managed_launchpad_uaa
+              ServiceKeyName: managed_launchpad_uaa-key
+              sap.cloud.service: cloud.service
+            existing_destinations_policy: update
+        content-target: true
+    build-parameters:
+      no-source: true
+resources:
+  - name: managed_launchpad_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+  - name: managed_launchpad_html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 2
+  - name: managed_launchpad_uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
