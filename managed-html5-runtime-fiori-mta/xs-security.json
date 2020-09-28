@@ -1,5 +1,5 @@
 {
-  "xsappname": "FLP",
+  "xsappname": "managed_fiori",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

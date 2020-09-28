@@ -28,12 +28,12 @@ modules:
                 - Name: my_service_hello_world_html_repo_host
                   ServiceInstanceName: hello-world-html5-app-host-service
                   ServiceKeyName: hello-world_html_repo_host-key
-                  sap.cloud.service: my.service
+                  sap.cloud.service: cloud.service
                 - Authentication: OAuth2UserTokenExchange
                   Name: my_service_uaa_hello_world
                   ServiceInstanceName: hello-world-xsuaa-service
                   ServiceKeyName: uaa_hello-world-key
-                  sap.cloud.service: my.service
+                  sap.cloud.service: cloud.service
               existing_destinations_policy: update
           content-target: true
     build-parameters:
