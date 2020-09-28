@@ -27,6 +27,21 @@
       "sourceTemplate": {
           "id": "ui5template.smartTemplate",
           "version": "1.40.12"
+      },
+      "crossNavigation": {
+          "inbounds": {
+              "fe-inbound": {
+                  "signature": {
+                      "parameters": {},
+                      "additionalParameters": "allowed"
+                  },
+                  "semanticObject": "masterDetail",
+                  "action": "display",
+                  "title": "Available Categories",
+                  "subTitle": "",
+                  "icon": ""
+              }
+          }
       }
   },
   "sap.ui": {
