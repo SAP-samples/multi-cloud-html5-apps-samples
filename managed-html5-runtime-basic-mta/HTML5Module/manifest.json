@@ -1,13 +1,13 @@
 {
   "_version": "1.12.0",
   "sap.app": {
-    "id": "hello-world",
+    "id": "helloworld",
     "applicationVersion": {
       "version": "1.0.0"
     }
   },
   "sap.cloud": {
     "public": true,
-    "service": "cloud.service"
+    "service": "basic.service"
   }
 }
