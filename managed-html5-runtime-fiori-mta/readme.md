@@ -30,7 +30,7 @@ The web app that is contained in the `uimodule.zip` defines the following proper
 1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 1. Download the source code:
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/multi-cloud-html5-apps-samples
+    git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/managed-html5-runtime-launchpad-mta
     ```
 2. Build the project:
@@ -43,7 +43,7 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     cf deploy mta_archives/managed_launchpad_1.0.0.mtar
     ```
 
-If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/cloudservice.commyorgFLP/flpSandbox.html#Shell-home>
+If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/cloudservice.comsapfioriapp/index.html#Shell-home>
 
 ## Check the Result
 

@@ -12,7 +12,7 @@ This is an example of an HTML5 app that you maintain on a standalone application
 ## Download and Installation
 1. Download the source code:
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/multi-cloud-html5-apps-samples
+    git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/standalone-approuter-html5-local-dir
     ```
 3. Deploy the application router:
@@ -20,7 +20,7 @@ This is an example of an HTML5 app that you maintain on a standalone application
     cf push approuter --random-route
     ```
 
-If the deployment has been successful, you find the URL of the application router in the console output. It has the following structure: 
+If the deployment has been successful, you find the URL of the application router in the console output. or you can print it on Unix-based systems with `cf app approuter | awk '/^routes/ { print "https://"$2"/" }'`. It has the following structure: 
 
 <https://approuter-[random-path].cfapps.[region].hana.ondemand.com>.
 

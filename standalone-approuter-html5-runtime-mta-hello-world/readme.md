@@ -11,7 +11,7 @@ This is an example of an HTML5 app that you maintain on a standalone application
 ## Download and Installation
 1. Download the source code:
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/multi-cloud-html5-apps-samples
+    git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/standalone-approuter-html5-mta-hello-world
     ```
 2. Build the project:
@@ -24,7 +24,7 @@ This is an example of an HTML5 app that you maintain on a standalone application
     cf deploy mta_archives/standalone-hello-world_1.0.0.mtar
     ```
 
-If the deployment has been successful, you can find the URL of the application router in the console output. It has the following structure: <https://[globalaccount-id]-[subaccount-id]-dev-multi-cloud-html5-apps-samples.cfapps.eu10.hana.ondemand.com>.
+If the deployment has been successful, you find the URL of the application router in the console output or you can print it on Unix-based systems with `cf app html5_app_router | awk '/^routes/ { print "https://"$2"/" }'`. It probably has the following structure: <https://[globalaccount-id]-dev-multi-cloud-html5-apps-samples.cfapps.eu10.hana.ondemand.com>.
 
 
 ## Configuration

@@ -13,7 +13,7 @@ This is an example of an HTML5 app that is managed by SAP Cloud Platform. The ap
 1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 1. Download the source code:
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/multi-cloud-html5-apps-samples
+    git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/managed-html5-runtime-mta-hello-world
     ```
 2. Build the project:
@@ -26,7 +26,7 @@ This is an example of an HTML5 app that is managed by SAP Cloud Platform. The ap
     cf deploy mta_archives/hello-world_1.0.0.mtar
     ```
 
-If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/myservice.helloworld/index.html>
+If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/basicservice.helloworld/index.html>
 
 ## Check the Result
 

@@ -1,10 +1,10 @@
 {
   "init_data": {
-    "subaccount": {
+    "instance": {
       "existing_destinations_policy": "update",
       "destinations": []
     },
-    "instance": {
+    "subaccount": {
       "existing_destinations_policy": "update",
       "destinations": [
         {
