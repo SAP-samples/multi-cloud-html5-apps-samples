@@ -22,6 +22,11 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     "applicationVersion": {
       "version": "1.0.0"
     }
+  },
+  "sap.ui5": {
+    "dependencies": {
+        "minUI5Version": "1.65.0"
+    }
   }
 }
 ```
