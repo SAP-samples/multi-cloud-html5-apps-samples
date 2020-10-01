@@ -8,6 +8,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "my.service"
+    "service": "cloud.service"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "managed-html5-runtime-basic-mta",
+  "dependencies": {
+    "mbt": "^1.0.16"
+  },
+  "scripts": {
+    "build": "mbt build"
+  },
+  "version": "1.0.0"
+}

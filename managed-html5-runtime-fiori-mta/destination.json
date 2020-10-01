@@ -1,0 +1,22 @@
+{
+  "init_data": {
+    "instance": {
+      "existing_destinations_policy": "update",
+      "destinations": []
+    },
+    "subaccount": {
+      "existing_destinations_policy": "update",
+      "destinations": [
+        {
+          "Name": "Northwind",
+          "Description": "Automatically generated Northwind destination",
+          "Authentication": "NoAuthentication",
+          "ProxyType": "Internet",
+          "Type": "HTTP",
+          "URL": "https://services.odata.org",
+          "HTML5.DynamicDestination": true
+        }
+      ]
+    }
+  }
+}

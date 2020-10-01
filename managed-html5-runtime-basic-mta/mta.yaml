@@ -12,10 +12,10 @@ modules:
   - name: hello-world-destination-content
     type: com.sap.application.content
     requires:
-      - name: uaa_hello-world
+      - name: hello-world_uaa
         parameters:
           service-key:
-            name: uaa_hello-world-key
+            name: hello-world_uaa-key
       - name: hello-world_html_repo_host
         parameters:
           service-key:
@@ -26,14 +26,14 @@ modules:
             subaccount:
               destinations:
                 - Name: my_service_hello_world_html_repo_host
-                  ServiceInstanceName: hello-world-html5-app-host-service
+                  ServiceInstanceName: hello-world_html_repo_host
                   ServiceKeyName: hello-world_html_repo_host-key
-                  sap.cloud.service: my.service
+                  sap.cloud.service: basic.service
                 - Authentication: OAuth2UserTokenExchange
                   Name: my_service_uaa_hello_world
-                  ServiceInstanceName: hello-world-xsuaa-service
+                  ServiceInstanceName: hello-world_uaa
                   ServiceKeyName: uaa_hello-world-key
-                  sap.cloud.service: my.service
+                  sap.cloud.service: basic.service
               existing_destinations_policy: update
           content-target: true
     build-parameters:
@@ -71,12 +71,10 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo
-      service-name: hello-world-html5-app-host-service
       service-plan: app-host
-  - name: uaa_hello-world
+  - name: hello-world_uaa
     type: org.cloudfoundry.managed-service
     parameters:
       path: ./xs-security.json
       service: xsuaa
-      service-name: hello-world-xsuaa-service
       service-plan: application

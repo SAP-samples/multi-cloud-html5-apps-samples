@@ -1,0 +1,79 @@
+ID: managed-fiori
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+modules:
+  - name: webapp-deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: managed-fiori-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - HTML5Module-content.zip
+          name: HTML5Module
+          target-path: resources/
+  - name: HTML5Module
+    type: html5
+    path: HTML5Module
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+  - name: managed-fiori-destination-content
+    type: com.sap.application.content
+    build-parameters:
+      no-source: true
+    requires:
+      - name: managed-fiori-uaa
+        parameters:
+          service-key:
+            name: managed-fiori-uaa-key
+      - name: managed-fiori-html5-repo-host
+        parameters:
+          service-key:
+            name: managed-fiori-html5-repo-host-key
+      - name: managed-fiori-destination
+        parameters:
+          content-target: true          
+          content:
+            subaccount:
+              existing_destinations_policy: update
+              destinations:
+                - Name: managed-fiori-destination-html5
+                  ServiceInstanceName: managed-fiori-html5-repo-host
+                  ServiceKeyName: managed-fiori-html5-repo-host-key
+                  sap.cloud.service: cloud.service
+                - Name: managed-fiori-destination-uaa
+                  Authentication: OAuth2UserTokenExchange
+                  ServiceInstanceName: managed-fiori-uaa
+                  ServiceKeyName: managed-fiori-uaa-key
+                  sap.cloud.service: cloud.service
+
+
+resources:
+  - name: managed-fiori-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      path: ./destination.json 
+  - name: managed-fiori-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config:
+        sizeLimit: 2
+  - name: managed-fiori-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa

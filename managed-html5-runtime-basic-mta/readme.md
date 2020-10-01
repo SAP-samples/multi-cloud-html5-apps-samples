@@ -1,4 +1,4 @@
-# App on HTML5 Application Runtime managed by SAP Cloud Platform with XSUAA- and Destination Service
+# Basic HTML5 App on HTML5 Application Runtime managed by SAP Cloud Platform
 
 ## Diagram
 
@@ -7,12 +7,13 @@
 
 ## Description
 
-This is an example of an HTML5 app that is managed by SAP Cloud Platform. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
+This is an example of an HTML5 app that is managed by SAP Cloud Platform and is integrated into a SAP Cloud Launchpad. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
 
 ## Download and Deployment
+1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 1. Download the source code:
     ```
-    git clone https://github.com/SAP-samples/cloud-cap-nodejs-codejam/multi-cloud-html5-apps-samples
+    git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/managed-html5-runtime-mta-hello-world
     ```
 2. Build the project:
@@ -25,12 +26,7 @@ This is an example of an HTML5 app that is managed by SAP Cloud Platform. The ap
     cf deploy mta_archives/hello-world_1.0.0.mtar
     ```
 
-If the deployment has been successful, you find the URL of the application router in the console output. It will have the following structure: <https://[globalaccount-id]-[subaccount-id]-dev-multi-cloud-html5-apps-samples.cfapps.eu10.hana.ondemand.com>.
-
-## Configuration
-To change the path to the default application, edit the `welcomeFile` property in the [`xs-app.json`](router/xs-app.json) configuration file of the application router.
-
-You receive a `503 Service Temporarily Unavailable` error if there is no application with the defined name in the HTML5 Application Repository.
+If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/basicservice.helloworld/index.html>
 
 ## Check the Result
 
