@@ -1,5 +1,5 @@
 {
-  "name": "HTML5Module",
+  "name": "html5module",
   "version": "0.0.1",
   "scripts": {
     "build": "npm run clean && npm run zip",
