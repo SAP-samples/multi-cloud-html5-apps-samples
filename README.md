@@ -1,5 +1,7 @@
 # Examples of HTML5 Applications for SAP Cloud Platform Multi-Cloud Environment 
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/multi-cloud-html5-apps-samples/)](https://api.reuse.software/info/github.com/SAP-samples/multi-cloud-html5-apps-samples/)
+
 
 This repository contains examples of HTML5 Applications for the SAP Cloud Platform Cloud Foundry environment. The examples show how you can use standalone application routers or HTML5 Applications Runtime managed by SAP Cloud Platform or to achieve different goals and  they demonstrate the capabilities of HTML5 Application Repository service in the Cloud Foundry environment.
 
@@ -76,7 +78,3 @@ None so far :)
 
 ## Support
 This content is provided "as-is" with no other support.
-
-## License
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the SAP Sample Code License except as noted otherwise in the [LICENSE file](LICENSE).
