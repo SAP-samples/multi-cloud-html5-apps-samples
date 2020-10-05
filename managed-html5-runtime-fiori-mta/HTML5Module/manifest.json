@@ -1,7 +1,6 @@
 {
   "_version": "1.12.0",
   "sap.cloud": {
-    "public": true,
     "service": "cloud.service"
   },
   "sap.app": {
