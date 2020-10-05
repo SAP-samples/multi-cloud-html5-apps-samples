@@ -9,7 +9,6 @@
     }
   },
   "sap.cloud": {
-    "public": true,
     "service": "basic.service"
   },
   "sap.ui5": {
