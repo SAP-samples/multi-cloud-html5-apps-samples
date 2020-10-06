@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "mbt build",
-    "deploy:cf": "cross-var cf deploy mta_archives/managed_launchpad_$npm_package_version.mtar",
+    "deploy:cf": "cross-var cf deploy mta_archives/managed-fiori_$npm_package_version.mtar",
     "deploy": "run-s build deploy:cf"
   },
   "devDependencies": {

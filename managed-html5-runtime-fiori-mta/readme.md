@@ -36,7 +36,7 @@ The web app that is contained in the `uimodule.zip` defines the following proper
 1. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
-    cd multi-cloud-html5-apps-samples/managed-html5-runtime-launchpad-mta
+    cd multi-cloud-html5-apps-samples/managed-html5-runtime-fiori-mta
     ```
 2. Build the project:
     ```
@@ -45,8 +45,14 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     ```
 3. Deploy the project:
     ```
-    cf deploy mta_archives/managed_launchpad_1.0.0.mtar
+    npm run deploy:cf
     ```
+    or
+    ```
+    cf deploy mta_archives/managed_fiori_1.0.0.mtar
+    ```
+
+*Note: Be careful that you do not already have a manually created destination with the same name that is dynamically created from the mta.yaml. If you do it will raise deploy with the destination service. This sample app uses a destination named `Northwind`*
 
 If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/cloudservice.comsapfioriapp/index.html#Shell-home>
 
