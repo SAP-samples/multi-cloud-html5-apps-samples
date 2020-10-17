@@ -1,5 +1,5 @@
 {
-  "welcomeFile": "/helloworld/index.html",
+  "welcomeFile": "/helloworldapprouter/index.html",
   "authenticationMethod": "route",
   "routes": []
 }
