@@ -14,7 +14,7 @@ This is an example of an HTML5 app that is managed by SAP Cloud Platform and is 
 1. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
-    cd multi-cloud-html5-apps-samples/managed-html5-runtime-mta-hello-world
+    cd multi-cloud-html5-apps-samples/managed-html5-runtime-basic-mta
     ```
 2. Build the project:
     ```
