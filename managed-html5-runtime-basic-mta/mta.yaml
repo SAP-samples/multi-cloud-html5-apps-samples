@@ -21,21 +21,6 @@ modules:
           service-key:
             name: hello-world_html_repo_host-key
       - name: hello-world-destination-service
-        parameters:
-          content:
-            subaccount:
-              destinations:
-                - Name: my_service_hello_world_html_repo_host
-                  ServiceInstanceName: hello-world_html_repo_host
-                  ServiceKeyName: hello-world_html_repo_host-key
-                  sap.cloud.service: basic.service
-                - Authentication: OAuth2UserTokenExchange
-                  Name: my_service_uaa_hello_world
-                  ServiceInstanceName: hello-world_uaa
-                  ServiceKeyName: uaa_hello-world-key
-                  sap.cloud.service: basic.service
-              existing_destinations_policy: update
-          content-target: true
     build-parameters:
       no-source: true
   - name: hello-world_ui_deployer
@@ -67,6 +52,20 @@ resources:
       service: destination
       service-name: hello-world-destination-service
       service-plan: lite
+      content:
+        subaccount:
+          destinations:
+            - Name: my_service_hello_world_html_repo_host
+              ServiceInstanceName: hello-world_html_repo_host
+              ServiceKeyName: hello-world_html_repo_host-key
+              sap.cloud.service: basic.service
+            - Authentication: OAuth2UserTokenExchange
+              Name: my_service_uaa_hello_world
+              ServiceInstanceName: hello-world_uaa
+              ServiceKeyName: uaa_hello-world-key
+              sap.cloud.service: basic.service
+          existing_destinations_policy: update
+      content-target: true
   - name: hello-world_html_repo_host
     type: org.cloudfoundry.managed-service
     parameters:
