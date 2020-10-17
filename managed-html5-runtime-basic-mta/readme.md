@@ -61,6 +61,6 @@ hello-world-xsuaa-service            xsuaa             application              
 
 ### Check the HTML5 App
 
-Access the URL to view the web app. You are redirected to a sign-on page before you can see the web app.
+Access the URL described in [Download and Deployment](#download-and-deployment) to view the web app. You are redirected to a sign-on page before you can see the web app.
 
 ![webapp](result.png)
