@@ -1,5 +1,5 @@
 {
-  "name": "managed-launchpad",
+  "name": "managed-fiori",
   "version": "1.0.0",
   "scripts": {
     "build": "mbt build",
