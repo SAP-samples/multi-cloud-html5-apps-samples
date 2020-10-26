@@ -4,6 +4,14 @@ version: 1.0.0
 parameters:
   enable-parallel-deployments: true
 modules:
+  - name: HTML5Module
+    type: html5
+    path: HTML5Module
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
   - name: webapp-deployer
     type: com.sap.application.content
     path: .
@@ -18,14 +26,6 @@ modules:
             - HTML5Module-content.zip
           name: HTML5Module
           target-path: resources/
-  - name: HTML5Module
-    type: html5
-    path: HTML5Module
-    build-parameters:
-      builder: custom
-      commands:
-        - npm run build
-      supported-platforms: []
   - name: managed-fiori-destination-content
     type: com.sap.application.content
     build-parameters:
