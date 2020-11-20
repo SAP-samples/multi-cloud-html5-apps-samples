@@ -52,8 +52,6 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     cf deploy mta_archives/managed_fiori_1.0.0.mtar
     ```
 
-*Note: Be careful that you do not already have a manually created destination with the same name that is dynamically created from the mta.yaml. If you do it will raise deploy with the destination service. This sample app uses a destination named `Northwind`*
-
 If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/cloudservice.comsapfioriapp/index.html#Shell-home>
 
 ## Check the Result
