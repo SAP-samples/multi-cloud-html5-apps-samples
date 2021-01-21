@@ -12,7 +12,7 @@ This is an example of an HTML5 app that you maintain on a standalone application
 1. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
-    cd multi-cloud-html5-apps-samples/standalone-approuter-html5-mta-hello-world
+    cd multi-cloud-html5-apps-samples/standalone-approuter-html5-runtime-mta-hello-world
     ```
 2. Build the project:
     ```
