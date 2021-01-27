@@ -5,7 +5,7 @@
 ![diagram](diagram.png)
 
 ## Description
-This is an example of an HTML5 app that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
+This is an example of an HTML5 app that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML Application Repository and uses the Authentication & Authorization service (XSUAA service), the destination service, and the User API.
 
 
 ## Download and Installation
@@ -68,6 +68,6 @@ html5_uaa            xsuaa             application   html5_app_router   create s
 
 ### Check the Web App
 
-Access the URL to view the web app. You are directed to a sign-on page before you can see the web app.
+Access the URL to view the web app. You are directed to a sign-on page before you can see the web app that display your name.
 
 ![webapp](result.png)

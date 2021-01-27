@@ -1,10 +1,21 @@
 <html>
 <header>
-  <title>This is title</title>
+  <title>Welcome</title>
+  <meta charset="UTF-8">
 </header>
 
+<script>
+  setTimeout(() => {
+    fetch("/user-api/currentUser").then((res) => {
+      return res.json();
+    }).then((user) => {
+      document.getElementsByTagName("body")[0].innerText = `Hi ${user.firstname} 👋`
+    });
+  }, 1000);
+</script>
+
 <body>
-  Hello world
+  Hi there 👋
 </body>
 
 </html>
