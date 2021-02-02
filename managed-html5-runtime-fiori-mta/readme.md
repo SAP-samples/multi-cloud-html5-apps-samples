@@ -1,4 +1,4 @@
-# SAP Fiori app on HTML5 Runtime Managed by SAP Cloud Platform
+# SAP Fiori app on HTML5 Runtime Managed by SAP BTP
 
 ## Diagram
 
@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an example of an SAP Fiori app that is managed by SAP Cloud Platform. The SAP Fiori app is exposed to an SAP Cloud Platform Launchpad and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
+This is an example of an SAP Fiori app that is managed by SAP BTP. The SAP Fiori app is exposed to the SAP Launchpad service and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
 
 The web app that is contained in the `uimodule.zip` defines the following properties in the `manifest.json` file. Otherwise, the correspoding values in the `mta.yaml` descriptor need to be updated as well.
 

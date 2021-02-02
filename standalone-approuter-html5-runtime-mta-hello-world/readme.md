@@ -5,7 +5,7 @@
 ![diagram](diagram.png)
 
 ## Description
-This is an example of an HTML5 app that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML Application Repository and uses the Authentication & Authorization service (XSUAA service), the destination service, and the User API.
+This is an example of an HTML5 app that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML Application Repository and uses the Authentication & Authorization service (XSUAA service), the destination service, and the User API service.
 
 
 ## Download and Installation
