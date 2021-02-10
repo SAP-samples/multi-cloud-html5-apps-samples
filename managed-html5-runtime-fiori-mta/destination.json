@@ -2,10 +2,6 @@
   "init_data": {
     "instance": {
       "existing_destinations_policy": "update",
-      "destinations": []
-    },
-    "subaccount": {
-      "existing_destinations_policy": "update",
       "destinations": [
         {
           "Name": "Northwind",
