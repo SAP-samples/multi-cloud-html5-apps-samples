@@ -1,4 +1,4 @@
-# Basic HTML5 App on HTML5 Application Runtime managed by SAP BTP
+# Basic HTML5 App with a Managed Application Router
 
 ## Diagram
 
@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an example of an HTML5 app that is managed by SAP BTP and is integrated into the SAP Launchpad service. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
+This is an example of an HTML5 app that is accessed by a managed application router and is integrated into the SAP Launchpad service. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
 
 ## Download and Deployment
 1. Subscribe to the [SAP Launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.

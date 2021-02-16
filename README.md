@@ -2,18 +2,18 @@
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/multi-cloud-html5-apps-samples/)](https://api.reuse.software/info/github.com/SAP-samples/multi-cloud-html5-apps-samples/)
 
-This repository contains examples of HTML5 applications for multiple SAP BTP environments. The examples show how you can use standalone application routers or HTML5 Applications Runtime managed by SAP BTP to achieve different goals and they demonstrate the capabilities of the SAP HTML5 Application Repository service for SAP BTP.
+This repository contains examples of HTML5 applications for multiple SAP BTP environments. The examples show how you can use standalone application routers or managed application routers to achieve different goals and they demonstrate the capabilities of the SAP HTML5 Application Repository service for SAP BTP.
 
-On the Cloud Foundry and Kyma environment of SAP BTP, you can run an application that was uploaded to the SAP HTML5 Application Repository service for SAP BTP using one of the following options: a standalone application router or HTML5 Applications Runtime managed by SAP BTP. Both options allow you to serve static content from the HTML5 Application Repository, authenticate users, rewrite URLs, and forward or proxy requests to other micro services while propagating user information. However, the option that is managed by SAP BTP brings many benefits, such as:
+On the Cloud Foundry and Kyma environment of SAP BTP, you can run an application that was uploaded to the SAP HTML5 Application Repository service for SAP BTP using one of the following options: a standalone application router or a managed application router. Both options allow you to serve static content from the HTML5 Application Repository, authenticate users, rewrite URLs, and forward or proxy requests to other micro services while propagating user information. However, the option that is managed brings many benefits, such as:
 - Simplifying and speeding up your development and deployment experience
 - Saving resources by running a serverless HTML5 application, which doesn’t require any application runtime
 - Lower maintenance efforts by leveraging the most up-to-date routing capabilities
 - Meeting the changing demand for HTML5 applications by automatically adjusting the service to maintain consistent and predictable performance
 
-In general, we recommend using the HTML5 Applications Runtime managed by SAP BTP. Use an standalone application router preferably only in advanced cases, for example when application router extensibility is required.
+In general, we recommend using the managed application router. Use an standalone application router preferably only in advanced cases, for example when application router extensibility is required.
 
 For more information, see 
-- [Developing HTML5 Applications Managed by SAP BTP](https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/Cloud/en-US/c1b9d6facfc942e3bca664ae06387e9b.html)
+- [Developing HTML5 Applications with the Managed Application Router](https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/Cloud/en-US/c1b9d6facfc942e3bca664ae06387e9b.html)
 - [Developing HTML5 Applications in the Cloud Foundry Environment](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/11d77aa154f64c2e83cc9652a78bb985.html)
 
 # Examples for SAP BTP, Cloud Foundry Environment
@@ -59,12 +59,12 @@ For information about how to upload a react-based application to the HTML5 Appli
 - [SAP Fiori app integrated with SAP Cloud Portal service and using UI5 flexibility service for key users](standalone-portal-keyuser-mta)
 
 
-## HTML5 Apps Using the HTML5 Applications Runtime Managed by SAP BTP
+## HTML5 Apps Using the Managed Application Router
 
-In contrast to the examples above, you don't need an application router for the following apps, which use the HTML5 Applications Runtime managed by SAP BTP. This reduces the total cost of ownership (TCO) and you don't have to update the application router manually. 
+In contrast to the examples above, you don't need an application router for the following apps, which use the managed application router. This reduces the total cost of ownership (TCO) and you don't have to update the application router manually. 
 
-- [Basic HTML5 app that is managed by SAP BTP with XSUAA service and destination service](managed-html5-runtime-basic-mta)
-- [SAP Fiori app that is managed by SAP BTP with XSUAA service and destination service](managed-html5-runtime-fiori-mta)
+- [Basic HTML5 App with a Managed Application Router, XSUAA service, and destination service](managed-html5-runtime-basic-mta)
+- [SAP Fiori App with a Managed Application Router, XSUAA service, and destination service](managed-html5-runtime-fiori-mta)
 
 
 
