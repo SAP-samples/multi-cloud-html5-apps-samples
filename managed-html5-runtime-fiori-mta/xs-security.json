@@ -1,5 +1,5 @@
 {
-  "xsappname": "managed_fiori",
+  "xsappname": "managed_fiori_app",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [

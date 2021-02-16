@@ -25,7 +25,7 @@ modules:
           content-target: true
     parameters:
       content:
-        subaccount:
+        instance:
           destinations:
             - Name: my_service_hello_world_html_repo_host
               ServiceInstanceName: hello-world_html_repo_host
@@ -68,6 +68,9 @@ resources:
       service: destination
       service-name: hello-world-destination-service
       service-plan: lite
+      config:
+        HTML5Runtime_enabled: true
+        version: 1.0.0
   - name: hello-world_html_repo_host
     type: org.cloudfoundry.managed-service
     parameters:
