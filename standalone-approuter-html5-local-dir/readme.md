@@ -6,7 +6,7 @@
 
 ## Description
 
-This is an example of an HTML5 app that you maintain on a standalone application router in your own space. The app is directly embedded into your subaccount on the Cloud Foundry environment. That means the static content of the is not stored and managed in the HTML5 Application Repository of SAP Cloud Platform.
+This is an example of an HTML5 app that you maintain on a standalone application router in your own space. The app is directly embedded into your subaccount on the Cloud Foundry environment. That means the static content of the is **not** stored and managed in the HTML5 Application Repository of SAP BTP.
 
 
 ## Download and Installation

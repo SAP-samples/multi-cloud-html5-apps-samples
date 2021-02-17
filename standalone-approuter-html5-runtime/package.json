@@ -2,7 +2,7 @@
 	"name": "approuter_html5",
 	"description": "Node.js based application router service for html5-apps",
 	"dependencies": {
-		"mbt": "^1.0.16"
+		"mbt": "^1.1.0"
 	},
 	"scripts": {
 		"build": "mbt build"
