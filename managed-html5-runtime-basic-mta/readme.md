@@ -1,4 +1,4 @@
-# Basic HTML5 App on HTML5 Application Runtime managed by SAP Cloud Platform
+# Basic HTML5 App with a Managed Application Router
 
 ## Diagram
 
@@ -7,38 +7,45 @@
 
 ## Description
 
-This is an example of an HTML5 app that is managed by SAP Cloud Platform and is integrated into a SAP Cloud Launchpad. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment via the Cloud Foundry environment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
+This is an example of an HTML5 app that is accessed by a managed application router and is integrated into the SAP Launchpad service. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
 
 ## Download and Deployment
-1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
+1. Subscribe to the [SAP Launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 1. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
     cd multi-cloud-html5-apps-samples/managed-html5-runtime-basic-mta
     ```
-2. Build the project:
+3. Build the project:
     ```
     npm install
     npm run build
     ```
-3. Deploy the project:
+4. Deploy the project:
     ```
     cf deploy mta_archives/hello-world_1.0.0.mtar
     ```
+5. See the URL of the web app:
+    ```
+    cf html5-list -di hello-world_ui_deployer -u
+    ```
 
-If the deployment has been successful, you will be able to form the URL of the app based on the URL of launchpad. It will have the following structure: <https://[globalaccount-id].launchpad.cfapps.[region].hana.ondemand.com/basicservice.helloworld/index.html>
+> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
 
 ## Check the Result
 
 ### List the Deployed HTML5 Apps
 ```
-$ cf html5-list                                     
+$ cf html5-list -di hello-world-destination-service -u                                   
 Getting list of HTML5 applications in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
 OK
 
-name                   version   app-host-id                            service instance                     visibility   last changed   
-helloworld             1.0.0     35e11503-bcc8-4d1e-95e2-2a196cd5ebb9   hello-world-html5-app-host-service   public       Mon, 10 Aug 2020 15:35:38 GMT 
+name         version   app-host-id                            service name    destination name                        last changed                    url   
+helloworld   1.0.0     bcd2d34a-1625-47ab-bf42-4f054970b911   basic.service   my_service_hello_world_html_repo_host   Tue, 16 Feb 2021 10:51:10 GMT   https://9f10ed8atrial.cpp.cfapps.eu10.hana.ondemand.com/7b673550-29f4-4b18-a128-6a4425018e6e.basicservice.helloworld-1.0.0/  
 ```
+
+> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
+
 
 ### List the Deployed MTA
 

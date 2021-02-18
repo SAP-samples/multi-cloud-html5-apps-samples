@@ -44,7 +44,7 @@ modules:
           content-target: true
     parameters:
       content:
-        subaccount:
+        instance:
           existing_destinations_policy: update
           destinations:
             - Name: managed-fiori-destination-html5
