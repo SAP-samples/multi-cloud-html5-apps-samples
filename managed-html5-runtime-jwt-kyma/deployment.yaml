@@ -1,0 +1,212 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - image: iobert/kyma-simple-backend
+          imagePullPolicy: Always
+          name: backend
+          volumeMounts:
+            - name: xsuaa-volume
+              mountPath: /etc/secrets/sapcp/xsuaa/kyma-xsuaa-instance
+              readOnly: true
+          env:
+            - name: PORT
+              value: "5000"
+      volumes:
+        - name: xsuaa-volume
+          secret:
+            secretName: kyma-xsuaa-binding
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: backend
+  name: backend-svc
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+  selector:
+    app: backend
+
+---
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  labels:
+    app: backend
+  name: backend
+  apirule.gateway.kyma-project.io/v1alpha1: backend
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  service:
+    host: backend
+    name: backend-svc
+    port: 5000
+  rules:
+    - path: /.*
+      methods: ["GET", "POST"]
+      accessStrategies:
+        - handler: noop
+      mutators:
+        - handler: header
+          config:
+            headers:
+              x-forwarded-host: backend.f73de6e.kyma.shoot.live.k8s-hana.ondemand.com
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: html5appdeployer
+  labels:
+    app: html5appdeployer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: html5appdeployer
+  template:
+    metadata:
+      labels:
+        app: html5appdeployer
+    spec:
+      containers:
+        - image: iobert/kyma-html5-app-deployer
+          imagePullPolicy: Always
+          name: html5appdeployer
+          volumeMounts:
+            - name: html5-repo-app-host-volume
+              mountPath: /etc/secrets/sapcp/html5-apps-repo/kyma-app-host-instance
+              readOnly: true
+            - name: xsuaa-volume
+              mountPath: /etc/secrets/sapcp/xsuaa/kyma-xsuaa-instance
+              readOnly: true
+            - name: destination-volume
+              mountPath: /etc/secrets/sapcp/destination/kyma-destination-instance
+              readOnly: true
+          env:
+            - name: PORT
+              value: "5000"
+            - name: SAP_CLOUD_SERVICE
+              value: "business.service"
+            - name: BACKEND_DESTINATIONS
+              value: "[{
+              \"Name\":\"token-service\",
+              \"Description\":\"my kyma backend\",
+              \"Type\":\"HTTP\",
+              \"ProxyType\":\"Internet\",
+              \"URL\":\"https://backend.f73de6e.kyma.shoot.live.k8s-hana.ondemand.com\",
+              \"Authentication\":\"NoAuthentication\",
+              \"HTML5.forwardAuthToken\": true}]"
+      volumes:
+        - name: html5-repo-app-host-volume
+          secret:
+            secretName: kyma-app-host-binding
+        - name: xsuaa-volume
+          secret:
+            secretName: kyma-xsuaa-binding
+        - name: destination-volume
+          secret:
+            secretName: kyma-destination-binding
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: kyma-xsuaa-instance
+spec:
+  clusterServiceClassExternalName: xsuaa
+  clusterServicePlanExternalName: application
+  parameters:
+    xsappname: kyma-app
+    tenant-mode: shared
+    scopes:
+      - name: "$XSAPPNAME.Callback"
+        description: "With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called."
+        grant-as-authority-to-apps :
+          - $XSAPPNAME(application,sap-provisioning,tenant-onboarding)
+    role-templates:
+      - name: TOKEN_EXCHANGE
+        description: Token exchange
+        scope-references:
+          - uaa.user
+      - name: "MultitenancyCallbackRoleTemplate"
+        description: "Call callback-services of applications"
+        scope-references:
+          - "$XSAPPNAME.Callback"
+    oauth2-configuration:
+      grant-types:
+        - authorization_code
+        - client_credentials
+        - password
+        - refresh_token
+        - urn:ietf:params:oauth:grant-type:saml2-bearer
+        - user_token
+        - client_x509
+        - urn:ietf:params:oauth:grant-type:jwt-bearer
+      redirect-uris:
+        - https://*/**
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: kyma-xsuaa-binding
+spec:
+  instanceRef:
+    name: kyma-xsuaa-instance
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: kyma-app-host-instance
+spec:
+  clusterServiceClassExternalName: html5-apps-repo
+  clusterServicePlanExternalName: app-host
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: kyma-app-host-binding
+spec:
+  instanceRef:
+    name: kyma-app-host-instance
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceInstance
+metadata:
+  name: kyma-destination-instance
+spec:
+  clusterServiceClassExternalName: destination
+  clusterServicePlanExternalName: lite
+  parameters:
+    HTML5Runtime_enabled: true
+    version: "1.0.0"
+
+---
+apiVersion: servicecatalog.k8s.io/v1beta1
+kind: ServiceBinding
+metadata:
+  name: kyma-destination-binding
+spec:
+  instanceRef:
+    name: kyma-destination-instance

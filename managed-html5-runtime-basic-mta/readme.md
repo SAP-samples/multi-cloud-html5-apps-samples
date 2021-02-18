@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an example of an HTML5 app that is managed by SAP Cloud Platform and is integrated into a SAP Cloud Launchpad. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
+This is an example of an HTML5 app that is managed by SAP Cloud Platform and is integrated into a SAP Cloud Launchpad. During the build process (`mbt build`), the  app is compressed into a zip file. During the deployment via the Cloud Foundry environment (`cf deploy`), the HTML5 app is pushed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service) and the destination service.
 
 ## Download and Deployment
 1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.

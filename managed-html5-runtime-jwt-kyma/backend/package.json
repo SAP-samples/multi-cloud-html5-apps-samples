@@ -1,0 +1,17 @@
+{
+  "name": "backend",
+  "description": "Node.js backend",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jwt-decode": "3.1.2"
+  },
+  "files": [],
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "^14.0.0"
+  },
+  "version": "1.0.0"
+}
