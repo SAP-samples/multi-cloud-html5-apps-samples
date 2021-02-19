@@ -5,7 +5,7 @@ const jwtDecode = require("jwt-decode");
 
 var app = express();
 
-app.get("/", function (req, res) {
+app.get("/", function (_, res) {
     res.end("This app runs on SAP BTP, Kyma Runtime. \n Yay! 🚀");
 });
 

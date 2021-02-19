@@ -63,11 +63,6 @@ spec:
       methods: ["GET", "POST"]
       accessStrategies:
         - handler: noop
-      mutators:
-        - handler: header
-          config:
-            headers:
-              x-forwarded-host: backend.f73de6e.kyma.shoot.live.k8s-hana.ondemand.com
 
 ---
 apiVersion: apps/v1
@@ -101,8 +96,6 @@ spec:
               mountPath: /etc/secrets/sapcp/destination/kyma-destination-instance
               readOnly: true
           env:
-            - name: PORT
-              value: "5000"
             - name: SAP_CLOUD_SERVICE
               value: "business.service"
             - name: BACKEND_DESTINATIONS
@@ -111,7 +104,7 @@ spec:
               \"Description\":\"my kyma backend\",
               \"Type\":\"HTTP\",
               \"ProxyType\":\"Internet\",
-              \"URL\":\"https://backend.f73de6e.kyma.shoot.live.k8s-hana.ondemand.com\",
+              \"URL\":\"https://backend.c210ab1.kyma.shoot.live.k8s-hana.ondemand.com\",
               \"Authentication\":\"NoAuthentication\",
               \"HTML5.forwardAuthToken\": true}]"
       volumes:

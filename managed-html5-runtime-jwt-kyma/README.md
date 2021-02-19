@@ -39,7 +39,7 @@ In addition the following service instances are created:
     docker build -t iobert/kyma-html5-app-deployer 
     docker push iobert/kyma-html5-app-deployer
     ```
-4. Add your account id (e.g. "43de072btrial") to the destination which is defined in line 114 of the [deployment descriptor](html5-app-deployer/deployment.yaml).
+4. Add your account id (e.g. "43de072btrial") to the destination which is defined in the environment variable `BACKEND_DESTINATIONS` of the [deployment descriptor](html5-app-deployer/deployment.yaml).
 2. Deploy the project
    ```
    kubectl apply -f deployment.yaml
