@@ -8,7 +8,7 @@
 
 ## Description
 
-This is an example of an SAPUI5 app that is managed by SAP Cloud Platform and a backend component that runs in the Kyma runtime. The SAPUI5 app is exposed to an SAP Cloud Platform Launchpad and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
+This is an example of an SAP Fiori app that is accessed by a managed application router and a backend component that runs in the Kyma runtime. The SAPUI5 app is exposed to an SAP Launchpad service and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
 The backend component accepts incoming requests and returns the payload of the decoded JWT token (if available) at `/be`.
 
 
