@@ -27,7 +27,7 @@ This is an example of an HTML5 app that is accessed by a managed application rou
     ```
 5. See the URL of the web app:
     ```
-    cf html5-list -di hello-world_ui_deployer -u
+    cf html5-list -di hello-world-destination-service -u       
     ```
 
 > You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
