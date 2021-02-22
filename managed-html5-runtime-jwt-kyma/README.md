@@ -16,7 +16,7 @@ The backend component accepts incoming requests and returns the payload of the d
 As a result of deploying this `/deployment.yaml` you will get 2 pods:
 
 1. `html5appdeployer` - an html5-app-deployer library based application that uploads favorites html5 application to HTML5 Application Repository and generates the required destinations.
-2. `backend` - a simple nodejs server that returns the JWT forwarded by the central approuter
+2. `backend` - a simple nodejs server that returns the JWT forwarded by the managed application router
 
 In addition the following service instances are created:
 - xsuaa/application service instance bound to backend container
