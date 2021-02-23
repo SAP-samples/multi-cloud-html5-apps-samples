@@ -1,4 +1,4 @@
-# Examples of HTML5 Applications for SAP Business Technology Platform Multi-Cloud Environements
+# Examples of HTML5 Applications for SAP Business Technology Platform Multi-Cloud Environments
 
 [![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/multi-cloud-html5-apps-samples/)](https://api.reuse.software/info/github.com/SAP-samples/multi-cloud-html5-apps-samples/)
 
