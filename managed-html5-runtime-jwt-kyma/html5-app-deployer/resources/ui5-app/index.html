@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Kyma Demo App</title>
+    <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" id="sap-ui-bootstrap"
+        data-sap-ui-libs="sap.m" data-sap-ui-theme="sap_fiori_3_dark">
+        </script>
+
+    <style>
+        .sapMPageEnableScrolling {
+            margin: 35px;
+        }
+    </style>
+    <script>
+
+        new sap.m.App({
+            pages: new sap.m.Page({
+                title: "Kyma Demo App",
+                headerContent: new sap.m.Button({
+                    icon: "sap-icon://log",
+                    tooltip: "logout",
+                    press: function () {
+                        window.location.replace("my/logout");
+                    }
+                }),
+                content: new sap.m.GenericTile({
+                    header: "Fetch data",
+                    subheader: "From Kyma Backend",
+                    tileContent: new sap.m.TileContent({
+                        content: new sap.ui.core.Icon({
+                            src: "sap-icon://process",
+                            color: sap.ui.core.IconColor.Default,
+                            size: "4em"
+                        })
+                    }),
+                    press: function () {
+                        jQuery.sap.require("sap.m.MessageBox");
+                        jQuery.ajax({
+                            type: "GET",
+                            contentType: "application/json",
+                            url: "be",
+                            success: function (data, textStatus, jqXHR) {
+                                sap.m.MessageBox.show(JSON.stringify(data, null, 4), { title: "Success - UAA Token" });
+                            },
+                            error: function (oError) {
+                                sap.m.MessageBox.show(oError.responseText, { title: "Error" });
+                            }
+                        });
+                    }
+                })
+            })
+        }).placeAt("uiArea");
+    </script>
+</head>
+
+<body class="sapUiBody">
+    <div id="uiArea"></div>
+</body>
+
+</html>
