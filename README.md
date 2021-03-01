@@ -70,8 +70,8 @@ In contrast to the examples above, you don't need an application router for the 
 
 # Examples for SAP BTP, Kubernetes Environment
 
-Coming soon...
-
+## HTML5 Apps Using the Managed Application Router
+- [Basic SAPUI5 App with a Managed Application Router and a Backend Component in the Kyma Runtime](managed-html5-runtime-jwt-kyma)
 
 ## Known Issues
 None so far :)
