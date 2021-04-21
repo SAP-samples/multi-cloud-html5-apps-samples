@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <link rel="shortcut icon"
+    href="https://static.community.services.sap/com-hdr/v7/453.190.7/shared-ui/1dx-assets/images/favicon.png"
+    type="image/x-icon">
+  <title>MTX Guestbook</title>
+  <script src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" id="sap-ui-bootstrap" data-sap-ui-libs="sap.m"
+    data-sap-ui-theme="sap_fiori_3_dark">
+    </script>
+
+  <style>
+    .sapMPageEnableScrolling {
+      padding: 35px;
+    }
+  </style>
+  <script>
+
+    const guestbook = new sap.ui.model.json.JSONModel({})
+
+    fetch("/guestbook").then(async (res) => {
+      if (res.ok) {
+        const data = await res.json();
+        guestbook.setData(data);
+      }
+    });
+
+    new sap.m.App({
+      pages: new sap.m.Page({
+        title: {
+          path: "/tenant",
+          formatter: tenant => `Multi-tenant Guestbook (${tenant})`
+        },
+        headerContent: new sap.m.Button({
+          icon: "sap-icon://log",
+          tooltip: {
+            path: "/user",
+            formatter: user => `Logout ${user}`
+          },
+          press: function () {
+            window.location.replace("/logout");
+          }
+        }),
+        content: [
+          new sap.m.List({
+            showSeparators: "Inner",
+            items: {
+              path: "/entries",
+              template: new sap.m.FeedListItem({
+                showIcon: false,
+                sender: "{author}",
+                timestamp: {
+                  path: "timestamp",
+                  formatter: ts => new Date(ts)
+                },
+                text: "{content}",
+                convertLinksToAnchorTags: "All"
+              })
+            }
+          }),
+          new sap.m.FeedInput({
+            showIcon: false,
+            enabled: {
+              path: "/canWrite",
+              formatter: scope => !!scope
+            },
+            post: async function (oEvent) {
+              const input = oEvent.getParameter("value");
+              const csrfRes = await fetch("/guestbook", {
+                method: "HEAD",
+                headers: { "x-csrf-token": "fetch" }
+              });
+              const res = await fetch(`/guestbook?content=${input}`, {
+                method: 'POST',
+                headers: { "x-csrf-token": csrfRes.headers.get("x-csrf-token") }
+              });
+              const newData = await res.json();
+              guestbook.setData(newData);
+            }
+          })
+        ]
+      })
+    }).setModel(guestbook)
+      .placeAt("uiArea");
+  </script>
+</head>
+
+<body class="sapUiBody">
+  <div id="uiArea"></div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/logout",
+    "logoutPage": "/logout.html"
+  },
+  "routes": [
+    {
+      "source": "^/logout-page.html$",
+      "target": "/mtxguestbook/logout-page.html",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "none"
+    },
+    {
+      "source": "(.*)",
+      "scope": ["$XSAPPNAME.Read"],
+      "target": "/mtxguestbook/$1",
+      "service": "html5-apps-repo-rt"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+ID: mtx-guestbook
+_schema-version: "2.1"
+version: 1.0.0
+
+parameters:
+  appname: mtx-guestbook
+  subdomain: <subdomain of the provider subaccount>
+
+modules:
+  - name: mtx-approuter
+    type: approuter.nodejs
+    path: router
+    parameters:
+      routes:
+        - route: https://${subdomain}-${appname}.${default-domain}
+        - route: https://<subdomain of the consumer subaccount>-${appname}.${default-domain}
+      disk-quota: 256M
+      memory: 256M
+      host: ${appname}
+      domain: ${default-domain}
+    requires:
+      - name: html5-rt
+      - name: uaa
+      - name: saas-registry
+    properties:
+      TENANT_HOST_PATTERN: "^(.*)-${appname}.${default-domain}"
+  - name: html5_deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: html5-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - HTML5Module-content.zip
+          name: HTML5Module
+          target-path: resources/
+  - name: HTML5Module
+    type: html5
+    path: HTML5Module
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+resources:
+  - name: html5-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+      service-name: ${appname}-html5-host
+  - name: html5-rt
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+      service-name: ${appname}-html5-rt
+    type: org.cloudfoundry.managed-service
+  - name: uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      service-name: ${appname}-uaa
+      config:
+        xsappname: ${appname}
+        tenant-mode: shared
+        scopes:
+          - name: $XSAPPNAME.Read
+            description: Read permission
+          - name: $XSAPPNAME.Write
+            description: Write permission
+          - name: $XSAPPNAME.Callback
+            description: With this scope set, the callbacks for tenant onboarding, offboarding and getDependencies can be called.
+            grant-as-authority-to-apps:
+              - $XSAPPNAME(application,sap-provisioning,tenant-onboarding)
+        foreign-scope-references:
+          - uaa.user
+        role-templates:
+          - name: Reader
+            description: Can read
+            scope-references:
+              - $XSAPPNAME.Read
+          - name: Author
+            description: Can read and write
+            scope-references:
+              - $XSAPPNAME.Read
+              - $XSAPPNAME.Write
+  - name: saas-registry
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: saas-registry
+      service-plan: application
+      service-name: ${appname}-saas-registry
+      config:
+        xsappname: ${appname}
+        appName: ${appname}
+        displayName: Guestbook
+        description: A guestbook app to explain the concepts of Multitenancy
+        category: Custom Apps
+        appUrls:
+          onSubscription: https://${subdomain}-${appname}.${default-domain}/callback/v1.0/tenants/{tenantId}
+          getDependencies: https://${subdomain}-${appname}.${default-domain}/callback/v1.0/dependencies

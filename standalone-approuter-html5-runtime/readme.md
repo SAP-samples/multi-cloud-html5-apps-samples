@@ -1,4 +1,4 @@
-# On Standalone Application Router using  HTML5 Application Repository
+# On Standalone Application Router using HTML5 Application Repository
 
 ## Diagram
 
