@@ -5,7 +5,7 @@
 ![diagram](diagram.png)
 
 ## Description
-The image above shows the guestbook application that you will learn to build in this post. The idea of this guestbook is quite simple; each tenant will have its own guestbook that is available under a unique URL. The application comes with two role templates - reader and author. Readers can see all existing entries of that tenant, and authors can also add new entries. For more details, please refer to this [blog post](INSERT HERE).
+The image above shows the guestbook application that you will learn to build in this post. The idea of this guestbook is quite simple; each tenant will have its own guestbook that is available under a unique URL. The application comes with two role templates - reader and author. Readers can see all existing entries of that tenant, and authors can also add new entries. For more details, please refer to this [blog post](https://blogs.sap.com/2021/04/22/cloud-native-lab-4-multi-tenant-apps-in-sap-btp/).
 
 
 To keep things simple, we won't add any persistence layer. We will use a standard JSON object in our extended approuter to temporarily save some data. Consequently, all data is lost once the application restarts, but this is fine for our simple demo. If you would like to persist the data, please look at the [multitenancy guide from CAP](https://cap.cloud.sap/docs/guides/multitenancy).
@@ -32,7 +32,7 @@ If the deployment has been successful, you find the URL of the application route
 
 ## Configuration
 
-Before deploying the project, you need to to replace the subdomain placeholders in the `mta.yaml` yaml file. If you want to subscribe multiple tenants from multiple subaccount, add new routes for them as well. For more details, please refer to this [blog post](INSERT HERE).
+Before deploying the project, you need to to replace the subdomain placeholders in the `mta.yaml` yaml file. If you want to subscribe multiple tenants from multiple subaccount, add new routes for them as well. For more details, please refer to this [blog post](https://blogs.sap.com/2021/04/22/cloud-native-lab-4-multi-tenant-apps-in-sap-btp/).
 
 ## Check the Result
 
