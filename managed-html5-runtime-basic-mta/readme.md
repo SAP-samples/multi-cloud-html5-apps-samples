@@ -27,16 +27,19 @@ This is an example of an HTML5 app that is accessed by a managed application rou
     ```
 5. See the URL of the web app:
     ```
-    cf html5-list -di hello-world-destination-service -u       
+    cf html5-list -di hello-world-destination-service -u --runtime launchpad     
     ```
 
-> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
+> Use the following command in case you use the Portal service
+>
+>  `cf html5-list -di hello-world-destination-service -u --runtime cpp`
+
 
 ## Check the Result
 
 ### List the Deployed HTML5 Apps
 ```
-$ cf html5-list -di hello-world-destination-service -u                                   
+$ cf html5-list -di hello-world-destination-service -u --runtime launchpad                                 
 Getting list of HTML5 applications in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
 OK
 

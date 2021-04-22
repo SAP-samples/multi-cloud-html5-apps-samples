@@ -53,16 +53,19 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     ```
 5. See the URL of the web app:
     ```
-    cf html5-list -di managed-fiori-destination -u
+    cf html5-list -di managed-fiori-destination -u --runtime launchpad
     ```
 
-> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
+> Use the following command in case you use the Portal service
+>
+>  `cf html5-list -di managed-fiori-destination -u --runtime cpp`
+
 
 ## Check the Result
 
 ### List the Deployed HTML5 Apps
 ```
-$ cf html5-list -di managed-fiori-destination -u                               
+$ cf html5-list -di managed-fiori-destination -u --runtime launchpad-u                               
 Getting list of HTML5 applications in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
 OK
 
