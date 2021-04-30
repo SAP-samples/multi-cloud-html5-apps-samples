@@ -104,7 +104,7 @@ spec:
               \"Description\":\"my kyma backend\",
               \"Type\":\"HTTP\",
               \"ProxyType\":\"Internet\",
-              \"URL\":\"https://backend.c210ab1.kyma.shoot.live.k8s-hana.ondemand.com\",
+              \"URL\":\"https://backend.c-13093b0.kyma.shoot.live.k8s-hana.ondemand.com\",
               \"Authentication\":\"NoAuthentication\",
               \"HTML5.forwardAuthToken\": true}]"
       volumes:

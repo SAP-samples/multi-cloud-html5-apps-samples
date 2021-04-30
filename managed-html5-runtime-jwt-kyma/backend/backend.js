@@ -9,7 +9,7 @@ app.get("/", function (_, res) {
     res.end("This app runs on SAP BTP, Kyma Runtime. \n Yay! 🚀");
 });
 
-app.get("/be", function (req, res) {
+app.get("/token", function (req, res) {
     console.log("====Req headers ", req.headers);
     let token = req.headers["authorization"];
     if (!token) {
@@ -21,5 +21,5 @@ app.get("/be", function (req, res) {
     res.end(JSON.stringify(decodedToken));
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 5000);
 

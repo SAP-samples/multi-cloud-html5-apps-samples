@@ -1,0 +1,26 @@
+{
+    "welcomeFile": "index.html",
+    "authenticationMethod": "route",
+    "logout": {
+      "logoutEndpoint": "/my/logout",
+      "logoutPage": "/logout-page.html"
+    },
+    "routes": [
+      {
+        "source": "^/token$",
+        "destination": "token-service",
+        "authenticationType": "xsuaa"
+      },
+      {
+        "source": "^/logout-page.html$",
+        "service": "html5-apps-repo-rt",
+        "authenticationType": "none"
+      },
+      {
+        "source": "^(/.*)",
+        "target": "$1",
+        "service": "html5-apps-repo-rt",
+        "authenticationType": "xsuaa"
+      }
+    ]
+  }

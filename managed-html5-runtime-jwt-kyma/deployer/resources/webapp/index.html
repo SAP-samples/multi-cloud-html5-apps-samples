@@ -41,7 +41,7 @@
                         jQuery.ajax({
                             type: "GET",
                             contentType: "application/json",
-                            url: "be",
+                            url: "token",
                             success: function (data, textStatus, jqXHR) {
                                 sap.m.MessageBox.show(JSON.stringify(data, null, 4), { title: "Success - UAA Token" });
                             },
