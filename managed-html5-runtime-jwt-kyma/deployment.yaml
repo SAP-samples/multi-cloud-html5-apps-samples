@@ -16,16 +16,13 @@ spec:
         app: backend
     spec:
       containers:
-        - image: iobert/kyma-simple-backend
+        - image: ghcr.io/sap-samples/kyma-simple-backend:latest
           imagePullPolicy: Always
           name: backend
           volumeMounts:
             - name: xsuaa-volume
               mountPath: /etc/secrets/sapcp/xsuaa/kyma-xsuaa-instance
               readOnly: true
-          env:
-            - name: PORT
-              value: "5000"
       volumes:
         - name: xsuaa-volume
           secret:
@@ -82,7 +79,7 @@ spec:
         app: html5appdeployer
     spec:
       containers:
-        - image: iobert/kyma-html5-app-deployer
+        - image: ghcr.io/sap-samples/kyma-html5-app-deployer:latest
           imagePullPolicy: Always
           name: html5appdeployer
           volumeMounts:
