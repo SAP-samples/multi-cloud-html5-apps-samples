@@ -7,8 +7,8 @@
   },
   "routes": [
     {
-      "source": "^/logout-page.html$",
-      "target": "/mtxguestbook/logout-page.html",
+      "source": "^/logout.html$",
+      "target": "/mtxguestbook/logout.html",
       "service": "html5-apps-repo-rt",
       "authenticationType": "none"
     },
