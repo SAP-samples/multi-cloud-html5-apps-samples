@@ -16,8 +16,6 @@ modules:
         - route: https://<subdomain of the consumer subaccount>-${appname}.${default-domain}
       disk-quota: 256M
       memory: 256M
-      host: ${appname}
-      domain: ${default-domain}
     requires:
       - name: html5-rt
       - name: uaa
