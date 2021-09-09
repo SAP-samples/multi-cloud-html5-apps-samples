@@ -31,7 +31,12 @@ The MTA file bind the CAP service to the xsuaa service already created by the `m
 6. Set the address of the `Northwind` destination to the URL of CAP service
 7. Set the additional property `HTML5.ForwardAuthToken` to `true`
 
+![image](https://user-images.githubusercontent.com/51169423/132773729-253d5b06-8631-4c09-9090-cff7f4a116e8.png)
+
 ## Check the Result
 
 ### Check the HTML5 App
-To be sure to use the new address set in the destination open a incognito browser window and access the URL of the HTML5 App of the `managed-html5-runtime-fiori-mta` package, you should see the same data, however the product name of the product with ID 1 will be *Hello from CAP*, this is the mark that the data are read from the CAP service.
+To be sure to use the new address set in the destination open an incognito browser window and access the URL of the HTML5 App of the `managed-html5-runtime-fiori-mta` package, you should see the same data, however the product name of the product with ID 1 will be *Hello from CAP*, this is the mark that the data are read from the CAP service.
+
+![image](https://user-images.githubusercontent.com/51169423/132773806-f1964c2f-4679-4f7c-988a-a55824729f55.png)
+
