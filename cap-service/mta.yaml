@@ -31,6 +31,7 @@ modules:
     requires:
       # Resources extracted from CAP configuration
       - name: cap-service-db
+      # Manually add to bind to xsuaa
       - name: managed-fiori-uaa
     provides:
       - name: srv-api # required by consumers of CAP services (e.g. approuter)
@@ -65,7 +66,8 @@ resources:
     properties:
       hdi-service-name: ${service-name}
 
-  # services extracted from CAP configuration
+  # manually add to bind to the xsuaa service deployed by
+  # managed-html5-runtime-fiori-mta
   - name: managed-fiori-uaa
     type: org.cloudfoundry.existing-service
     parameters:
