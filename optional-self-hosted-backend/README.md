@@ -4,8 +4,8 @@ This is an example of how to consume a CAP service with authentication from on S
 
 The [managed-html-runtime-fiori-mta](https://github.com/SAP-samples/multi-cloud-html5-apps-samples/tree/master/managed-html5-runtime-fiori-mta) sample consumes the [Northwind odata.org service](../managed-html5-runtime-fiori-mta/destination.json#L14), this is a public service without any kind of authentication.
 
-This project [mocks](./srv/cat-service.cds#L3) the Northwind service and [override](./mta.yaml#L88) the URL of the original `Northwind` destination with the URL of the mockup service.  
-The service is exposed as a CAP service with required [authentication](./srv/cat-service.cds#L4), deploy of this package set the necessary property [HTML5.ForwardAuthToken](./mta.yaml#L90).
+This project [mocks](./srv/cat-service.cds#L3) the Northwind service, the service is exposed as a CAP service with required [authentication](./srv/cat-service.cds#L4).
+Deploy of this package [override](./mta.yaml#L88) the URL of the original `Northwind` destination with the URL of the mockup service and set the  property [HTML5.ForwardAuthToken](./mta.yaml#L90) necessary to forward the authentication user from the SAP Fiori app to the CAP service.
 This property is documented at  [Configure Destinations](https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/LATEST/en-US/fab4035652cb4fc48503c65dc841d335.html)
 
 The MTA file [bind](./mta.yaml#L35) the CAP service to the xsuaa service already created by the `managed-html5-runtime-fiori-mta` package.
