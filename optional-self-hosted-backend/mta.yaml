@@ -66,6 +66,29 @@ resources:
     properties:
       hdi-service-name: ${service-name}
 
+  # manually add to replace the original destination deployed by
+  # managed-html5-runtime-fiori-mta
+  - name: managed-fiori-destination
+    type: org.cloudfoundry.managed-service
+    requires:
+      - name: srv-api
+    parameters:
+      service-plan: lite
+      service: destination
+      config:
+        init_data:
+          instance:
+            existing_destinations_policy: update
+            destinations:
+              - Name: Northwind
+                Description: Self-hosted Northwind mockup CAP backend
+                Authentication: NoAuthentication
+                ProxyType: Internet
+                Type: HTTP
+                URL: ~{srv-api/srv-url}
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+
   # manually add to bind to the xsuaa service deployed by
   # managed-html5-runtime-fiori-mta
   - name: managed-fiori-uaa
