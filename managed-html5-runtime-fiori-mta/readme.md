@@ -32,8 +32,8 @@ The web app that is contained in the `uimodule.zip` defines the following proper
 ```
 
 
-## Optional CAP service with authorization
-The SAP Fiori app consume the Northwind odata.org public service, to use instead a CAP service with required authentication look at [optional-self-hosted-backend](../optional-self-hosted-backend/README.md)
+### Optional CAP service with authorization
+The SAP Fiori app consume the Northwind odata.org public service, to use instead a CAP service with required authentication look at [optional-self-hosted-backend](../optional-self-hosted-backend/)
 
 ## Download and Deployment
 1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
