@@ -68,7 +68,8 @@ In contrast to the examples above, you don't need an application router for the 
 - [Basic HTML5 App with a Managed Application Router, XSUAA service, and destination service](managed-html5-runtime-basic-mta)
 - [SAP Fiori App with a Managed Application Router, XSUAA service, and destination service](managed-html5-runtime-fiori-mta)
 
-
+### Optional backend service
+- [SAP Fiori App example consume a public service, to use instead a CAP service with required authentication look at optional-self-hosted-backend](optional-self-hosted-backend)
 
 # Examples for SAP BTP, Kubernetes Environment
 
