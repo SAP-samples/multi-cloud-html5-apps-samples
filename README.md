@@ -34,7 +34,7 @@ For information about how to upload a react-based application to the HTML5 Appli
 
 ## Requirements
 - You have an SAP BTP Trial account in the region Europe (Frankfurt). For creating the trial account, see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
-- Node.js LTS version 10 is installed: <https://nodejs.org/en/download>
+- Node.js LTS version 14 is installed: <https://nodejs.org/en/download>
 - Cloud Foundry Command Line tool (cf CLI)  is installed. For more information, see this [tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
 - The Multi-Target Application Cloud Foundry CLI [Plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin) (MultiApps CF CLI Plugin) is installed : 
     ```
