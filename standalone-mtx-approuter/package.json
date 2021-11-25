@@ -2,7 +2,7 @@
 	"name": "mtx-approuter",
 	"description": "Node.js based application router service for html5-apps",
 	"dependencies": {
-		"mbt": "^1.1.1"
+		"mbt": "^1.2.7"
 	},
 	"scripts": {
 		"build": "mbt build"
