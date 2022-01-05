@@ -1,5 +1,5 @@
 {
-	"name": "appouter",
+	"name": "approuter",
 	"description": "Node.js based application router service for html5-apps",
 	"dependencies": {
 		"@sap/approuter": "^10.10.1"
