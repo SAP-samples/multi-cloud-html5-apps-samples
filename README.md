@@ -33,7 +33,9 @@ cf html5-push
 For information about how to upload a react-based application to the HTML5 Application Repository, see [this blog post](https://blogs.sap.com/2019/06/03/cloudfoundryfun-5-play-asteroids-powered-by-react-secured-by-sap-cloud-platform/).
 
 ## Requirements
-- You have an SAP BTP Trial account in the region Europe (Frankfurt). For creating the trial account, see this [tutorial](https://developers.sap.com/tutorials/hcp-create-trial-account.html).
+- You need one of the following SAP BTP account types:
+    - SAP BTP **trial account** in the region Europe (Frankfurt), or an SAP BTP **free tier** account. For creating an account see this [tutorial](https://developers.sap.com/group.btp-setup.html)
+    - SAP BTP productive account
 - Node.js LTS version 14 is installed: <https://nodejs.org/en/download>
 - Cloud Foundry Command Line tool (cf CLI)  is installed. For more information, see this [tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html)
 - The Multi-Target Application Cloud Foundry CLI [Plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin) (MultiApps CF CLI Plugin) is installed : 
