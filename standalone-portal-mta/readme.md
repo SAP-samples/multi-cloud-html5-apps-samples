@@ -6,7 +6,7 @@
 
 ## Description
 
-> Note: The service plan "portal-standard" [has been removed from the trial landscape](https://blogs.sap.com/2019/07/22/portal-service-available-on-sap-cloud-platform-cloud-foundry-trial-account/) and therefore this sample cannot be deployed to trial environments any longer. Please use a production environment as the target platform or explore the [SAP Fiori app with a managed application router](../managed-html5-runtime-fiori-mta). 
+> Note: The service plan "portal-standard" [has been removed from the trial landscape](https://blogs.sap.com/2019/07/22/portal-service-available-on-sap-cloud-platform-cloud-foundry-trial-account/) and therefore this sample cannot be deployed to trial environments any longer. Please use a [free tier](https://developers.sap.com/group.btp-setup.html) or production environment as the target platform or explore the [SAP Fiori app with a managed application router](../managed-html5-runtime-fiori-mta). 
 
 This is an example of an HTML5 app that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML Application Repository. The app uses Authentication & Authorization service (XSUAA service), the destination service and the SAP Cloud Portal service, which means that the app can be integrated in an SAP Fiori Launchpad.
 
