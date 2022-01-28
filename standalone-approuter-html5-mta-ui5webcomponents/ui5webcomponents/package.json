@@ -1,0 +1,21 @@
+{
+    "name": "ui5webcomponents",
+    "version": "1.0.0",
+    "description": "",
+    "engines": {
+        "node": ">=0.12"
+    },
+    "engineStrict": true,
+    "scripts": {
+        "start": "vite",
+        "build": "npm run clean && vite build && npm run zip",
+        "clean": "npx rimraf ui5webcomponents.zip dist",
+        "zip": "cd dist/ && npx bestzip ../ui5webcomponents.zip *"
+    },
+    "dependencies": {
+        "@ui5/webcomponents": "^1.0.2"
+    },
+    "devDependencies": {
+        "vite": "^2.7.2"
+    }
+}

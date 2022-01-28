@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>UI5 Web Components</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <ui5-title id="title">Welcome to UI5 Webcomponents!</ui5-title>
+    <br /><br />
+
+    <ui5-message-strip design="Warning" hide-close-button>
+      Adding more components? Check the sample page of the component and add the
+      corresponding import statement in `src/index.js`
+    </ui5-message-strip>
+    <br /><br />
+
+    <ui5-date-picker style="width: 300px;"></ui5-date-picker>
+    <br /><br />
+
+    <ui5-button design="Positive">Positive</ui5-button>
+    <ui5-button design="Negative">Negative</ui5-button>
+    <br /><br />
+
+    <ui5-switch design="Graphical" checked></ui5-switch>
+    <br />
+    <ui5-button id="openDialogButton">Open Dialog</ui5-button>
+    <br />
+
+    <ui5-dialog id="hello-dialog" header-text="Dialogs are easy!">
+      <div stype="padding: 2rem; display:flex; justify-content: center;">
+        Hello World!
+        <ui5-button id="closeDialogButton">Dismiss</ui5-button>
+      </div>
+    </ui5-dialog>
+    <ui5-button id="themeDialogButton" on:click={switchTheme}>Change Theme</ui5-button>
+    <br />
+    <ui5-label id="myThemeLabel"></ui5-label>
+
+    <script type="module" src="./src/index.js"></script>
+  </body>
+</html>

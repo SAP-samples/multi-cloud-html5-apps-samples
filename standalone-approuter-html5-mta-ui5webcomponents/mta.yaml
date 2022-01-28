@@ -1,0 +1,62 @@
+ID: standalone-approuter-ui5webcomponents
+_schema-version: "2.1"
+version: 1.0.0
+
+modules:
+  - name: approuter
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: html5_repo_runtime
+      - name: html5_destination
+      - name: html5_uaa
+  - name: ui5webcomponents
+    type: html5
+    path: ui5webcomponents
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+  - name: html5deployer
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: html5_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - ui5webcomponents.zip
+          name: ui5webcomponents
+          target-path: resources/
+
+resources:
+  - name: html5_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+
+
+  - name: html5_destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+  - name: html5_uaa
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+    type: org.cloudfoundry.managed-service

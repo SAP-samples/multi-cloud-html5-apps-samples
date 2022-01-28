@@ -1,0 +1,12 @@
+{
+    "sap.app": {
+      "id": "ui5webcomponents",
+      "applicationVersion": {
+        "version": "1.0.0"
+      }
+    },
+    "sap.cloud": {
+      "public": true,
+      "service": "cloud.service"
+    }
+  }

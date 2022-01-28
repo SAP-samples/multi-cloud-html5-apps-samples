@@ -1,0 +1,10 @@
+{
+	"name": "standalone-approuter-ui5webcomponents",
+	"dependencies": {
+		"mbt": "^1.2.7"
+	},
+	"scripts": {
+		"build": "mbt build"
+	},
+	"version": "1.0.0"
+}
