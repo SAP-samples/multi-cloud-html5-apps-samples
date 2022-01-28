@@ -5,9 +5,10 @@ package-lock.json
 dist/
 deployer/resources/
 mta_archives
-HTML5Module-content.zip
-manifest-bundle.zip
+*.zip
 resources/
 
 diagrams/
-diagrams.pptx
+*.pptx
+sap-btp-icon-collection/
+.DS_Store
