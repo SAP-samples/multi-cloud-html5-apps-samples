@@ -13,7 +13,7 @@ import "@ui5/webcomponents/dist/Assets";
 fetch("/user-api/currentUser").then((res) => {
   return res.json();
 }).then((user) => {
-  document.getElementById("title").textContent = `Hi ${user.firstname}, Welcome to UI5 Webcomponents!`
+  document.getElementById("title").textContent = `Hi ${user.firstname}, Welcome to UI5 Web Components!`
 });
 
 function switchTheme() {
