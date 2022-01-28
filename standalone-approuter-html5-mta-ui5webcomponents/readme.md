@@ -1,4 +1,4 @@
-# On Standalone Application Router, Using HTML5 Application Repository with UI5 Webcomponents, XSUAA Service, and Destination Service 
+# Standalone Application Router, Using HTML5 Application Repository with UI5 Webcomponents, XSUAA Service, and Destination Service 
 
 ## Diagram
 
@@ -66,6 +66,6 @@ html5_uaa            xsuaa             application   approuter          create s
 
 ### Check the Web App
 
-Access the URL to view the web app. You are directed to a sign-on page before you can see the web app that display your name.
+Access the URL to view the web app. You are directed to a sign-on page before you can see the web app that displays your name.
 
 ![webapp](result.png)
