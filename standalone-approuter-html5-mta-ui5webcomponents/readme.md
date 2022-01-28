@@ -1,11 +1,11 @@
-# Standalone Application Router, Using HTML5 Application Repository with UI5 Webcomponents, XSUAA Service, and Destination Service 
+# Standalone Application Router, Using HTML5 Application Repository with UI5 Web Components, XSUAA Service, and Destination Service 
 
 ## Diagram
 
 ![diagram](diagram.png)
 
 ## Description
-This is an example of an HTML5 app built with UI5 Webcomponents that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service), the destination service, and the User API service.
+This is an example of an HTML5 app built with UI5 Web Components that you maintain on a standalone application router in your own space in the Cloud Foundry environment. The app is deployed to the HTML5 Application Repository and uses the Authentication & Authorization service (XSUAA service), the destination service, and the User API service.
 
 
 ## Download and Installation
