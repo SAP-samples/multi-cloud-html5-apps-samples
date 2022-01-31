@@ -1,4 +1,4 @@
-# SAP Fiori App with a Managed Application Router
+# SAP Fiori App with a Managed Application Router Exposed to SAP Launchpad Service
 
 ## Diagram
 
@@ -39,7 +39,7 @@ The web app that is contained in the `uimodule.zip` defines the following proper
 2. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
-    cd multi-cloud-html5-apps-samples/managed-html5-runtime-fiori-mta
+    cd multi-cloud-html5-apps-samples/managed-html5-runtime-fiori-launchpad-mta
     ```
 3. Build the project:
     ```
@@ -69,11 +69,11 @@ The web app that is contained in the `uimodule.zip` defines the following proper
 ### List the Deployed HTML5 Apps
 ```
 $ cf html5-list -di managed-fiori-destination -u --runtime launchpad-u                               
-Getting list of HTML5 applications in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
+Getting list of HTML5 applications in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 
 name             version   app-host-id                            service name    destination name                  last changed                    url   
-comsapfioriapp   1.0.0     145bd58f-4e2a-4b66-999f-2a03a4870d4e   cloud.service   managed-fiori-destination-html5   Tue, 16 Feb 2021 11:19:52 GMT   https://9f10ed8atrial.launchpad.cfapps.eu10.hana.ondemand.com/8579be75-0008-4835-abf4-5c8c82b46f5c.cloudservice.comsapfioriapp-1.0.0/   
+comsapfioriapp   1.0.0     145bd58f-4e2a-4b66-999f-2a03a4870d4e   cloud.service   managed-fiori-destination-html5   Tue, 16 Feb 2021 11:19:52 GMT   https://[cf-org-name].launchpad.cfapps.eu10.hana.ondemand.com/8579be75-0008-4835-abf4-5c8c82b46f5c.cloudservice.comsapfioriapp-1.0.0/   
 ```
 
 > You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
@@ -82,7 +82,7 @@ comsapfioriapp   1.0.0     145bd58f-4e2a-4b66-999f-2a03a4870d4e   cloud.service 
 
 ```
 $ cf mta hello-world
-Showing health and status for multi-target app hello-world in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
+Showing health and status for multi-target app hello-world in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 Version: 1.0.0
 
