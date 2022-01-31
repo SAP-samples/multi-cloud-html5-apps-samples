@@ -79,7 +79,7 @@ standaloneportalmta_uaa                  xsuaa                     application  
 
 Access the URL to view the web app. You are redirected to a sign-on page before you can see the web app.
 
-In order to be able to see the **Adapt UI** button and make UI changes you have to enter the BTP cockpit, create a role collection that contains the role `FlexKeyUser`, and assign it to your account.
+> In order to be able to see the **Adapt UI** button and make UI changes you have to enter the BTP cockpit, create a role collection that contains the role `FlexKeyUser`, and assign it to your account.
 
 
 ![webapp1](result1.png)
