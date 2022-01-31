@@ -1,4 +1,4 @@
-# On Standalone Application Router, with full Launchpad Integration
+# Standalone Application Router with full Launchpad Integration
 
 ## Diagram
 
@@ -45,7 +45,7 @@ To change the path to the default app, edit the `welcomeFile` property in the [`
 ### List the Deployed HTML5 App
 ```
 $ cf html5-list                                     
-Getting list of HTML5 applications in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
+Getting list of HTML5 applications in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 
 name                          version   app-host-id                            service instance                      visibility   last changed   
@@ -56,14 +56,14 @@ commyorgstandaloneportalmta   1.0.0     f97283a5-3f63-4398-af40-fe8220e0055b   s
 
 ```
 $ cf mta standalone-portal-keyuser-mta
-Showing health and status for multi-target app standalone-portal-keyuser-mta in org 9f10ed8atrial / space dev as firstname.lastname@domain.com...
+Showing health and status for multi-target app standalone-portal-keyuser-mta in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 Version: 1.0.0
 
 Apps:
 name                                     requested state   instances   memory   disk   urls   
 standaloneportalmta_launchpad_deployer   stopped           0/1         256M     1G        
-standaloneportalmta                      started           1/1         512M     512M   9f10ed8atrial-dev-standaloneportalmta.cfapps.us10.hana.ondemand.com   
+standaloneportalmta                      started           1/1         512M     512M   [cf-org-name]-dev-standaloneportalmta.cfapps.us10.hana.ondemand.com   
 
 Services:
 name                                     service                   plan          bound apps                                                    last operation   
@@ -79,5 +79,8 @@ standaloneportalmta_uaa                  xsuaa                     application  
 
 Access the URL to view the web app. You are redirected to a sign-on page before you can see the web app.
 
+In order to be able to see the **Adapt UI** button and make UI changes you have to enter the BTP cockpit, create a role collection that contains the role `FlexKeyUser`, and assign it to your account.
 
-![webapp](result.png)
+
+![webapp1](result1.png)
+![webapp2](result2.png)

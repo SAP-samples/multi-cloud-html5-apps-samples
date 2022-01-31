@@ -71,6 +71,6 @@ resources:
       service: portal
   - name: standaloneportalmta_keyuser
     parameters:
-      service-plan: keyuser
+      service-plan: free #or 'keyuser'
       service: ui5-flexibility-keyuser
     type: org.cloudfoundry.managed-service
