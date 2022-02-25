@@ -3,8 +3,20 @@
   <title>This is title</title>
 </header>
 
+<script>
+  setTimeout(() => {
+    let myPath = window.location.pathname
+    let myPathWithoutFile = myPath.substring(0, myPath.lastIndexOf('/'))
+    fetch(myPathWithoutFile + "/user-api/currentUser").then((res) => {
+      return res.json();
+    }).then((user) => {
+      document.getElementsByTagName("body")[0].innerText = `Hi ${user.firstname}!`
+    });
+  }, 1000);
+</script>
+
 <body>
-  Hello world
+  Hello World
 </body>
 
 </html>
