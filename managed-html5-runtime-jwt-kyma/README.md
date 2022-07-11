@@ -29,13 +29,13 @@ In addition the following service instances are created:
 1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 2. Build and upload the docker image of the backend component
    ```
-    cd kyma-html5-repo-example/backend
+    cd managed-html5-runtime-jwt-kyma/backend
     docker build -t iobert/kyma-simple-backend .
     docker push iobert/kyma-simple-backend
     ```
 2. Build and upload the docker image of the html5 app deployer 
    ```
-    cd ../html5-app-deployer
+    cd ../deployer
     docker build -t iobert/kyma-html5-app-deployer 
     docker push iobert/kyma-html5-app-deployer
     ```
