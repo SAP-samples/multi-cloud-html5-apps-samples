@@ -12,7 +12,7 @@
         "@sap/xsenv": "^3.1.1",
         "@sap/xssec": "^3.2.10",
         "express": "^4",
-        "passport": "^0.5.0"
+        "passport": "^0.6.0"
     },
     "devDependencies": {
         "sqlite3": "^5.0.2"
