@@ -81,7 +81,7 @@ comsapfioriapp   1.0.0     145bd58f-4e2a-4b66-999f-2a03a4870d4e   cloud.service 
 ### List the Deployed MTA
 
 ```
-$ cf mta hello-world
+$ cf mta managed-fiori
 Showing health and status for multi-target app hello-world in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 Version: 1.0.0
