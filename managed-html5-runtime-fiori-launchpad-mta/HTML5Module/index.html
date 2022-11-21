@@ -10,14 +10,14 @@
     window['sap-ushell-config'] = {
       defaultRenderer: 'fiori2',
       applications: {
-				"masterDetail-display": {
-					title: "Available Categories",
-					description: "A Fiori application.",
-					additionalInformation: "SAPUI5.Component=com.sap.fioriapp",
-					applicationType: "URL",
-					url: "."
-				}
-			}
+        "masterDetail-display": {
+          title: "Available Categories",
+          description: "A Fiori application.",
+          additionalInformation: "SAPUI5.Component=com.sap.fioriapp",
+          applicationType: "URL",
+          url: "."
+        }
+      }
     };
   </script>
 
@@ -25,8 +25,8 @@
 
   <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
     data-sap-ui-libs="sap.m,sap.ushell,sap.fe.templates,sap.collaboration,sap.ui.layout"
-    data-sap-ui-compatVersion="edge" data-sap-ui-theme="sap_fiori_3" data-sap-ui-resourceroots='{"bookshop": "../"}'
-    data-sap-ui-frameOptions="allow"></script>
+    data-sap-ui-compatVersion="edge" data-sap-ui-theme="sap_fiori_3"
+    data-sap-ui-resourceroots='{"com.sap.fioriapp": "../"}' data-sap-ui-frameOptions="allow"></script>
 
   <script>
     sap.ui.getCore().attachInit(
