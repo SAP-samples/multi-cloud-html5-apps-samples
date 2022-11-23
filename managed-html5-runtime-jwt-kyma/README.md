@@ -36,7 +36,7 @@ In addition the following service instances are created:
 2. Build and upload the docker image of the html5 app deployer 
    ```
     cd ../deployer
-    docker build -t iobert/kyma-html5-app-deployer 
+    docker build -t iobert/kyma-html5-app-deployer .
     docker push iobert/kyma-html5-app-deployer
     ```
 4. Add your account id (e.g. "43de072btrial") to the destination which is defined in the environment variable `BACKEND_DESTINATIONS` of the [deployment descriptor](html5-app-deployer/deployment.yaml).
