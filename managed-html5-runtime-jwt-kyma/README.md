@@ -30,28 +30,29 @@ In addition the following service instances are created:
 2. Build and upload the docker image of the backend component
    ```
     cd managed-html5-runtime-jwt-kyma/backend
-    docker build -t iobert/kyma-simple-backend .
-    docker push iobert/kyma-simple-backend
+    docker build -t <yourAccount>/kyma-simple-backend .
+    docker push <yourAccount>/kyma-simple-backend
     ```
-2. Build and upload the docker image of the html5 app deployer 
+1. Build and upload the docker image of the html5 app deployer 
    ```
     cd ../deployer
-    docker build -t iobert/kyma-html5-app-deployer 
+    docker build -t iobert/kyma-html5-app-deployer .
     docker push iobert/kyma-html5-app-deployer
     ```
-4. Add your account id (e.g. "43de072btrial") to the destination which is defined in the environment variable `BACKEND_DESTINATIONS` of the [deployment descriptor](html5-app-deployer/deployment.yaml).
-2. Deploy the project
+1. Add your <clusterId> (e.g. "c-13093b0") to the destination which is defined in the environment variable `BACKEND_DESTINATIONS` of the [deployment descriptor](./deployment.yaml). You can find the <clusterID> in the entry page of the Kyma dashboard
+1. Deploy the project
    ```
+   cd ..
    kubectl apply -f deployment.yaml
    ```
        
-2. Access the web app via the SAP BTP cockpit or assemble the URL according to the following pattern:
+1. Access the web app via the SAP BTP cockpit or assemble the URL according to the following pattern:
    ```
    https://<account id>.launchpad.cfapps.eu10.hana.ondemand.com/<destination service instance ID>.businessservice.tokendisplay/index.html    ->
    https://43de072btrial.launchpad.cfapps.eu10.hana.ondemand.com/8aebc2e1-2234-4bd1-8da4-e15231138dbf.businessservice.tokendisplay/index.html
    ```
 
-   > You can find the destination service instance ID in the Kyma console
+   > You can find the destination service instance ID in the Kyma dashboard
    ![](instanceId.png)
 
 

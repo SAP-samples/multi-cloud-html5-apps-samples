@@ -48,7 +48,6 @@ metadata:
   labels:
     app: backend
   name: backend
-  apirule.gateway.kyma-project.io/v1alpha1: backend
 spec:
   gateway: kyma-gateway.kyma-system.svc.cluster.local
   service:
@@ -101,7 +100,7 @@ spec:
               \"Description\":\"my kyma backend\",
               \"Type\":\"HTTP\",
               \"ProxyType\":\"Internet\",
-              \"URL\":\"https://backend.c-13093b0.kyma.shoot.live.k8s-hana.ondemand.com\",
+              \"URL\":\"https://backend.<clusterId>.stage.kyma.ondemand.com\",
               \"Authentication\":\"NoAuthentication\",
               \"HTML5.forwardAuthToken\": true}]"
       volumes:
@@ -116,13 +115,13 @@ spec:
             secretName: kyma-destination-binding
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceInstance
 metadata:
   name: kyma-xsuaa-instance
 spec:
-  clusterServiceClassExternalName: xsuaa
-  clusterServicePlanExternalName: application
+  serviceOfferingName: xsuaa
+  servicePlanName: application
   parameters:
     xsappname: kyma-app
     tenant-mode: shared
@@ -154,49 +153,46 @@ spec:
         - https://*/**
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceBinding
 metadata:
   name: kyma-xsuaa-binding
 spec:
-  instanceRef:
-    name: kyma-xsuaa-instance
+  serviceInstanceName: kyma-xsuaa-instance
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceInstance
 metadata:
   name: kyma-app-host-instance
 spec:
-  clusterServiceClassExternalName: html5-apps-repo
-  clusterServicePlanExternalName: app-host
+  serviceOfferingName: html5-apps-repo
+  servicePlanName: app-host
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceBinding
 metadata:
   name: kyma-app-host-binding
 spec:
-  instanceRef:
-    name: kyma-app-host-instance
+  serviceInstanceName: kyma-app-host-instance
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceInstance
 metadata:
   name: kyma-destination-instance
 spec:
-  clusterServiceClassExternalName: destination
-  clusterServicePlanExternalName: lite
+  serviceOfferingName: destination
+  servicePlanName: lite
   parameters:
     HTML5Runtime_enabled: true
     version: "1.0.0"
 
 ---
-apiVersion: servicecatalog.k8s.io/v1beta1
+apiVersion: services.cloud.sap.com/v1
 kind: ServiceBinding
 metadata:
   name: kyma-destination-binding
 spec:
-  instanceRef:
-    name: kyma-destination-instance
+  serviceInstanceName: kyma-destination-instance
