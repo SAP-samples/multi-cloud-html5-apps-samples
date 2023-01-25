@@ -42,16 +42,16 @@ spec:
     app: backend
 
 ---
-apiVersion: gateway.kyma-project.io/v1alpha1
+apiVersion: gateway.kyma-project.io/v1beta1
 kind: APIRule
 metadata:
   labels:
     app: backend
   name: backend
 spec:
-  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  gateway: kyma-system/kyma-gateway
+  host: backend
   service:
-    host: backend
     name: backend-svc
     port: 5000
   rules:
