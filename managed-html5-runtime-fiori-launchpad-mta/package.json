@@ -4,11 +4,13 @@
   "scripts": {
     "build": "mbt build",
     "deploy:cf": "cross-var cf deploy mta_archives/managed-fiori_$npm_package_version.mtar",
-    "deploy": "run-s build deploy:cf"
+    "deploy": "run-s build deploy:cf",
+    "serve": "serve HTML5Module"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.5",
     "cross-var": "^1.1.0",
-    "mbt": "^1.2.7"
+    "mbt": "^1.2.7",
+    "npm-run-all": "^4.1.5",
+    "serve": "^14.2.0"
   }
 }

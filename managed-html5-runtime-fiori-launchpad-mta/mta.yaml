@@ -4,9 +4,17 @@ version: 1.0.0
 parameters:
   enable-parallel-deployments: true
 modules:
-  - name: HTML5Module
+  - name: HTML5Module1
     type: html5
-    path: HTML5Module
+    path: HTML5Module1
+    build-parameters:
+      builder: custom
+      commands:
+        - npm run build
+      supported-platforms: []
+  - name: HTML5Module2
+    type: html5
+    path: HTML5Module2
     build-parameters:
       builder: custom
       commands:
@@ -23,8 +31,12 @@ modules:
       build-result: resources
       requires:
         - artifacts:
-            - HTML5Module-content.zip
-          name: HTML5Module
+            - HTML5Module1-content.zip
+          name: HTML5Module1
+          target-path: resources/
+        - artifacts:
+            - HTML5Module2-content.zip
+          name: HTML5Module2
           target-path: resources/
   - name: managed-fiori-destination-content
     type: com.sap.application.content

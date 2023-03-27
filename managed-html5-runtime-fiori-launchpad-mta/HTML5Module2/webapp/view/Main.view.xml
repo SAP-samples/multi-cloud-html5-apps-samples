@@ -1,0 +1,13 @@
+<mvc:View
+    controllerName="com.sap.demo.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:cc="com.sap.demo.control" >
+    <App id="app">
+        <Page title="using a 3rd party lib with UI5">
+            <cc:BarChart />
+        </Page>
+    </App>
+</mvc:View>
