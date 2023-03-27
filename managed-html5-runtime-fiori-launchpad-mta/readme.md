@@ -7,35 +7,14 @@
 
 ## Description
 
-This is an example of an SAP Fiori app that is accessed by a managed application router. The SAP Fiori app is exposed to the SAP Launchpad service and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment  and uses the Authentication & Authorization service (XSUAA service) and the destination service. 
+This is an example of two SAP Fiori apps ([HTML5Module1](./HTML5Module1/) and [HTML5Module2](./HTML5Module2/)) that are configured to run with the managed application router. The apps are exposed to SAP Build Work Zone, standard edition and are visible in the content manager of the launchpad. The apps are deployed to the HTML5 Application Repository via the Cloud Foundry environment and use the Authentication & Authorization service (XSUAA service) and the destination service. 
 
-The web app that is contained in the `uimodule.zip` defines the following properties in the `manifest.json` file. Otherwise, the correspoding values in the `mta.yaml` descriptor need to be updated as well.
+1. The [HTML5Module1](./HTML5Module1/) consumes the public [Northwind OData service](https://services.odata.org/v2/Northwind/Northwind.svc), to use instead a CAP service with required authentication look at [optional-self-hosted-backend](../optional-self-hosted-backend/)
 
-```JSON
-{
-  "sap.cloud": {
-    "public": true,
-    "service": "cloud.service"
-  },
-  "sap.app": {
-    "id": "com.myorg.FLP",
-    "applicationVersion": {
-      "version": "1.0.0"
-    }
-  },
-  "sap.ui5": {
-    "dependencies": {
-        "minUI5Version": "1.65.0"
-    }
-  }
-}
-```
-
-
->  The SAP Fiori app consume the Northwind odata.org public service, to use instead a CAP service with required authentication look at [optional-self-hosted-backend](../optional-self-hosted-backend/)
+2. The [HTML5Module2](./HTML5Module2/) is a freestyle OpenUI5 application that uses an npm package for a custom control as described in [this blog post](https://blogs.sap.com/2021/11/15/using-npm-packages-in-ui5-without-shims/).
 
 ## Download and Deployment
-1. Subscribe to the [launchpad service](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
+1. Subscribe to the [SAP Build Work Zone, standard edition](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
 2. Download the source code:
     ```
     git clone https://github.com/SAP-samples/multi-cloud-html5-apps-samples
@@ -52,9 +31,9 @@ The web app that is contained in the `uimodule.zip` defines the following proper
     ```
     or
     ```
-    cf deploy mta_archives/managed_fiori_1.0.0.mtar
+    cf deploy mta_archives/managed-fiori_1.0.0.mtar
     ```
-5. See the URL of the web app:
+5. List the deployed HTML5 apps:
     ```
     cf html5-list -di managed-fiori-destination -u --runtime launchpad
     ```
@@ -73,7 +52,8 @@ Getting list of HTML5 applications in org [cf-org-name] / space dev as firstname
 OK
 
 name             version   app-host-id                            service name    destination name                  last changed                    url   
-comsapfioriapp   1.0.0     145bd58f-4e2a-4b66-999f-2a03a4870d4e   cloud.service   managed-fiori-destination-html5   Tue, 16 Feb 2021 11:19:52 GMT   https://[cf-org-name].launchpad.cfapps.eu10.hana.ondemand.com/8579be75-0008-4835-abf4-5c8c82b46f5c.cloudservice.comsapfioriapp-1.0.0/   
+comsapfioriapp   1.0.0     b14e8922-77d3-42bf-8de0-2d9e8aa2c793   cloud.service   managed-fiori-destination-html5   Mon, 27 Mar 2023 11:20:17 GMT   https://nicolai-geburek-c8wbb6sc.launchpad.cfapps.eu10.hana.ondemand.com/97e830d3-6bc6-413a-9408-17a44bbaa3f7.cloudservice.comsapfioriapp-1.0.0/
+comsapdemo       0.0.1     b14e8922-77d3-42bf-8de0-2d9e8aa2c793   cloud.service   managed-fiori-destination-html5   Mon, 27 Mar 2023 11:20:18 GMT   https://nicolai-geburek-c8wbb6sc.launchpad.cfapps.eu10.hana.ondemand.com/97e830d3-6bc6-413a-9408-17a44bbaa3f7.cloudservice.comsapdemo-0.0.1/ 
 ```
 
 > You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
@@ -91,19 +71,19 @@ name   requested state   instances   memory   disk   urls
 
 Services:
 name                                service           plan          bound apps   last operation   
-managed_launchpad_destination       destination       lite                       update succeeded   
-managed_launchpad_html5_repo_host   html5-apps-repo   app-host                   update succeeded   
-managed_launchpad_uaa               xsuaa             application                update succeeded  
+managed-launchpad-destination       destination       lite                       update succeeded   
+managed-launchpad-html5-repo-host   html5-apps-repo   app-host                   update succeeded   
+managed-launchpad-uaa               xsuaa             application                update succeeded  
 ```
 
 
 ### List the Deployed Content with the Content Explorer
 
-![Content in Content Explorer](contentExplorer.png)
+![Content Explorer](contentExplorer.png)
 
 
-### Check the HTML5 App
+### Check the HTML5 Apps
 
-Access the URL described in [Download and Deployment](#download-and-deployment) to view the web app. You are redirected to a sign-on page before you can see the web app.
+Access one of the URLs described in the [Download and Deployment](#download-and-deployment) section. You are redirected to a sign-on page before you can see the app.
 
-![webapp](result.png)
+![HTML5Module1](HTML5Module1.png)
