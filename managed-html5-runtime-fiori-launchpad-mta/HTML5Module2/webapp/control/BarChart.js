@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/Control",
-	"chart.js"
-], function (Control, Chart) {
+	"chart.js",
+	"../resources/chart.js"
+], function (Control, StayHereToIncludeChartInBuild, Chart) {
 	"use strict"
 
 	return Control.extend("com.sap.demo.control.BarChart", {
