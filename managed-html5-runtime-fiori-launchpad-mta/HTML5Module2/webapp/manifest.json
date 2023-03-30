@@ -1,15 +1,35 @@
 {
   "_version": "1.12.0",
+  "sap.cloud": {
+    "public": true,
+    "service": "cloud.service"
+  },
   "sap.app": {
     "id": "com.sap.demo",
     "type": "application",
     "applicationVersion": {
       "version": "0.0.1"
     },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
+    "title": "Demo charts.js",
+    "description": "Demo charts.js",
     "resources": "resources.json",
-    "dataSources": {}
+    "dataSources": {},
+    "crossNavigation": {
+        "inbounds": {
+            "intent1": {
+                "signature": {
+                    "parameters": {},
+                    "additionalParameters": "allowed"
+                },
+                "semanticObject": "Object",
+                "action": "display",
+                "title": "Demo charts.js",
+                "info": "Demo charts.js",
+                "subTitle": "Demo charts.js",
+                "icon": "sap-icon://account"
+            }
+        }
+    }
   },
   "sap.ui": {
     "technology": "UI5",
