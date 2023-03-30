@@ -5,7 +5,7 @@
     "build": "mbt build",
     "deploy:cf": "cross-var cf deploy mta_archives/managed-fiori_$npm_package_version.mtar",
     "deploy": "run-s build deploy:cf",
-    "serve": "serve HTML5Module"
+    "serve": "serve HTML5Module2/dist"
   },
   "devDependencies": {
     "cross-var": "^1.1.0",
