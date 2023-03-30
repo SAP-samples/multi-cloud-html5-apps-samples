@@ -4,13 +4,15 @@
     "scripts": {
         "start": "ui5 serve --config=ui5.yaml  --open index.html",
         "build": "npm run clean && npm run build:ui5 && npm run zip",
-        "clean": "npx rimraf HTML5Module2-content.zip",
+        "clean": "rimraf HTML5Module2-content.zip",
         "build:ui5": "ui5 build -a",
-        "zip": "cd dist && npx bestzip ../HTML5Module2-content.zip *"
+        "zip": "cd dist && bestzip ../HTML5Module2-content.zip *"
     },
     "devDependencies": {
         "@ui5/cli": "^2.14.1",
+        "bestzip": "^2.2.1",
         "chart.js": "^3.8.0",
+        "rimraf": "^4.4.1",
         "ui5-task-zipper": "^0.4.7",
         "ui5-tooling-modules": "^0.3.3"
     },
