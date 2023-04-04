@@ -18,6 +18,7 @@ modules:
     build-parameters:
       builder: custom
       commands:
+        - npm install
         - npm run build
       supported-platforms: []
   - name: webapp-deployer
