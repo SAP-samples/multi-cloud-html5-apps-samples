@@ -43,7 +43,7 @@ This is an example of an SAP Fiori app ([HTML5Module1](./HTML5Module1/) that is 
 
 ### List the Deployed HTML5 Apps
 ```
-$ cf html5-list -di managed-fiori-destination -u --runtime launchpad-u                               
+$ cf html5-list -di managed-fiori-destination -u --runtime launchpad                               
 Getting list of HTML5 applications in org [cf-org-name] / space dev as firstname.lastname@domain.com...
 OK
 
