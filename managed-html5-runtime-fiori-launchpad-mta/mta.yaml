@@ -12,15 +12,6 @@ modules:
       commands:
         - npm run build
       supported-platforms: []
-  - name: HTML5Module2
-    type: html5
-    path: HTML5Module2
-    build-parameters:
-      builder: custom
-      commands:
-        - npm install
-        - npm run build
-      supported-platforms: []
   - name: webapp-deployer
     type: com.sap.application.content
     path: .
@@ -34,10 +25,6 @@ modules:
         - artifacts:
             - HTML5Module1-content.zip
           name: HTML5Module1
-          target-path: resources/
-        - artifacts:
-            - HTML5Module2-content.zip
-          name: HTML5Module2
           target-path: resources/
   - name: managed-fiori-destination-content
     type: com.sap.application.content
