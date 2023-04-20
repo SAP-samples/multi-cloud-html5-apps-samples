@@ -7,11 +7,7 @@
 
 ## Description
 
-This is an example of two SAP Fiori apps ([HTML5Module1](./HTML5Module1/) and [HTML5Module2](./HTML5Module2/)) that are configured to run with the managed application router. The apps are exposed to SAP Build Work Zone, standard edition and are visible in the content manager of the launchpad. The apps are deployed to the HTML5 Application Repository via the Cloud Foundry environment and use the Authentication & Authorization service (XSUAA service) and the destination service. 
-
-1. The [HTML5Module1](./HTML5Module1/) consumes the public [Northwind OData service](https://services.odata.org/v2/Northwind/Northwind.svc), to use instead a CAP service with required authentication look at [optional-self-hosted-backend](../optional-self-hosted-backend/)
-
-2. The [HTML5Module2](./HTML5Module2/) is a freestyle OpenUI5 application that uses an npm package for a custom control as described in [this blog post](https://blogs.sap.com/2021/11/15/using-npm-packages-in-ui5-without-shims/).
+This is an example of an SAP Fiori app ([HTML5Module1](./HTML5Module1/) that is configured to run with the managed application router. The app is exposed to SAP Build Work Zone, standard edition and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment and uses the Authentication & Authorization (XSUAA) and the destination service. It consumes the public [Northwind OData service](https://services.odata.org/v2/Northwind/Northwind.svc) - to use instead a CAP service with required authentication have look at [optional-self-hosted-backend](../optional-self-hosted-backend/).
 
 ## Download and Deployment
 1. Subscribe to the [SAP Build Work Zone, standard edition](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
@@ -53,7 +49,6 @@ OK
 
 name             version   app-host-id                            service name    destination name                  last changed                    url   
 comsapfioriapp   1.0.0     b14e8922-77d3-42bf-8de0-2d9e8aa2c793   cloud.service   managed-fiori-destination-html5   Mon, 27 Mar 2023 11:20:17 GMT   https://nicolai-geburek-c8wbb6sc.launchpad.cfapps.eu10.hana.ondemand.com/97e830d3-6bc6-413a-9408-17a44bbaa3f7.cloudservice.comsapfioriapp-1.0.0/
-comsapdemo       0.0.1     b14e8922-77d3-42bf-8de0-2d9e8aa2c793   cloud.service   managed-fiori-destination-html5   Mon, 27 Mar 2023 11:20:18 GMT   https://nicolai-geburek-c8wbb6sc.launchpad.cfapps.eu10.hana.ondemand.com/97e830d3-6bc6-413a-9408-17a44bbaa3f7.cloudservice.comsapdemo-0.0.1/ 
 ```
 
 > You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
