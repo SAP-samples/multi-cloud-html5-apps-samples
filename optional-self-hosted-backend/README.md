@@ -2,7 +2,7 @@
 
 This is an example of how to consume a CAP service with authentication from on SAP Fiori app.
 
-The [managed-html-runtime-fiori-mta](../managed-html5-runtime-fiori-mta) sample consumes the [Northwind odata.org service](../managed-html5-runtime-fiori-mta/destination.json#L14), this is a public service without any kind of authentication.
+The [managed-html5-runtime-fiori-launchpad-mta](../managed-html5-runtime-fiori-launchpad-mta) sample consumes the [Northwind odata.org service](../managed-html5-runtime-fiori-mta/destination.json#L14), this is a public service without any kind of authentication.
 
 This project [mocks](./srv/cat-service.cds#L3) the Northwind service, the service is exposed as a CAP service with required [authentication](./srv/cat-service.cds#L4).
 Deploy of this package [override](./mta.yaml#L88) the URL of the original [Northwind](../managed-html5-runtime-fiori-mta/destination.json#L9) destination with the URL of the mockup service and set the  property [HTML5.ForwardAuthToken](./mta.yaml#L90) necessary to forward the authentication user from the SAP Fiori app to the CAP service.
