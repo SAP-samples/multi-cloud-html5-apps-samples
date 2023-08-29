@@ -1,11 +1,15 @@
 {
-  "xsappname": "managed_fiori_app",
+  "xsappname": "managed-fiori-uaa",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [
     {
       "name": "uaa.user",
       "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.CustomRole",
+      "description": "Admin"
     }
   ],
   "role-templates": [
@@ -15,6 +19,14 @@
       "scope-references": [
         "uaa.user"
       ]
+    },
+    {
+      "name": "CustomRole",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.CustomRole"
+      ],
+      "attribute-references": []
     }
   ]
 }
