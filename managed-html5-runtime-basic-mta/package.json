@@ -1,7 +1,7 @@
 {
   "name": "managed-html5-runtime-basic-mta",
   "dependencies": {
-    "mbt": "^1.2.7"
+    "mbt": "latest"
   },
   "scripts": {
     "build": "mbt build --mtar managed-html5-runtime-basic-mta",
