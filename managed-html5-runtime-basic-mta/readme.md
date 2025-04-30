@@ -47,8 +47,6 @@ name                  version   app-host-id                            service n
 samplebasichtml5mta   0.0.1     66d2a9fd-9f24-48f0-a05a-f6ffe5a1fcdd   multi-cloud-html5-apps-samples   sample-basic-html5-repo-host   sample-basic-html5-destination-service   Wed, 30 Apr 2025 12:37:20 GMT   https://e983544etrial.launchpad.cfapps.us10.hana.ondemand.com/ff91dc2c-9a21-4ac2-a2f6-914610750dd3.multi-cloud-html5-apps-samples.samplebasichtml5mta-0.0.1/   
 ```
 
-> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
-
 
 ### List the Deployed MTA
 
