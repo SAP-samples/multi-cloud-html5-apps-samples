@@ -2,13 +2,13 @@
     "_version": "1.12.0",
     "sap.cloud": {
         "public": true,
-        "service": "cloud.service"
+        "service": "multi-cloud-html5-apps-samples"
     },
     "sap.app": {
-        "id": "com.sap.fioriapp",
+        "id": "sample.manage.products.fiori.launchpad.mta",
         "type": "application",
         "applicationVersion": {
-            "version": "1.0.0"
+            "version": "0.0.1"
         },
         "title": "Fiori App",
         "dataSources": {

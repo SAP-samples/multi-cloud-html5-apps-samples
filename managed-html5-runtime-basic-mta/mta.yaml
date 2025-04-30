@@ -1,5 +1,5 @@
 _schema-version: "3.2"
-ID: hello-world
+ID: "sample-basic-html5-mta"
 version: 1.0.0
 
 build-parameters:
@@ -9,35 +9,35 @@ build-parameters:
         - npm install
 
 modules:
-  - name: hello-world-destination-content
+  - name: sample-basic-html5-destination-content
     type: com.sap.application.content
     requires:
-      - name: hello-world_uaa
-      - name: hello-world_html_repo_host
-      - name: hello-world-destination-service
+      - name: sample-basic-html5-uaa
+      - name: sample-basic-html5-repo-host
+      - name: sample-basic-html5-destination-service
         parameters:
           content-target: true
     parameters:
       content:
         instance:
           destinations:
-            - Name: my_service_hello_world_html_repo_host
-              ServiceInstanceName: hello-world_html_repo_host
-              ServiceKeyName: hello-world_html_repo_host-key
-              sap.cloud.service: basic.service
-            - Name: my_service_uaa_hello_world
-              ServiceInstanceName: hello-world_uaa
-              ServiceKeyName: hello-world_uaa-key
-              sap.cloud.service: basic.service
+            - Name: sample-basic-html5-repo-host
+              ServiceInstanceName: sample-basic-html5-repo-host
+              ServiceKeyName: sample-basic-html5-repo-host-key
+              sap.cloud.service: multi-cloud-html5-apps-samples
+            - Name: sample-basic-html5-uaa
+              ServiceInstanceName: sample-basic-html5-uaa
+              ServiceKeyName: sample-basic-html5-uaa-key
+              sap.cloud.service: multi-cloud-html5-apps-samples
               Authentication: OAuth2UserTokenExchange
           existing_destinations_policy: update
     build-parameters:
       no-source: true
-  - name: hello-world_ui_deployer
+  - name: sample-basic-html5-ui-deployer
     type: com.sap.application.content
     path: .
     requires:
-      - name: hello-world_html_repo_host
+      - name: sample-basic-html5-repo-host
         parameters:
           content-target: true
     build-parameters:
@@ -56,27 +56,27 @@ modules:
         - npm run build
       supported-platforms: []
 resources:
-  - name: hello-world-destination-service
+  - name: sample-basic-html5-destination-service
     type: org.cloudfoundry.managed-service
     parameters:
       service: destination
-      service-name: hello-world-destination-service
+      service-name: sample-basic-html5-destination-service
       service-plan: lite
       config:
         HTML5Runtime_enabled: true
         version: 1.0.0
-  - name: hello-world_html_repo_host
+  - name: sample-basic-html5-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service: html5-apps-repo
       service-plan: app-host
       service-keys: 
-        - name: hello-world_html_repo_host-key
-  - name: hello-world_uaa
+        - name: sample-basic-html5-repo-host-key
+  - name: sample-basic-html5-uaa
     type: org.cloudfoundry.managed-service
     parameters:
       path: ./xs-security.json
       service: xsuaa
       service-plan: application
       service-keys: 
-        - name: hello-world_uaa-key
+        - name: sample-basic-html5-uaa-key

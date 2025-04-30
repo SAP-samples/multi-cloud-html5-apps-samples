@@ -1,58 +1,38 @@
 {
-    "name": "cap-service",
-    "version": "1.0.0",
-    "description": "A simple CAP project.",
-    "repository": "<Add your repository here>",
-    "license": "UNLICENSED",
-    "private": true,
-    "dependencies": {
-        "@sap/cds": "^5",
-        "@sap/cds-odata-v2-adapter-proxy": "^1.8.1",
-        "@sap/hana-client": "^2.10.20",
-        "@sap/xsenv": "^3.1.1",
-        "@sap/xssec": "^3.2.10",
-        "express": "^4",
-        "passport": "^0.6.0"
-    },
-    "devDependencies": {
-        "sqlite3": "^5.0.2"
-    },
-    "scripts": {
-        "start": "cds run"
-    },
-    "eslintConfig": {
-        "extends": "eslint:recommended",
-        "env": {
-            "es2020": true,
-            "node": true,
-            "jest": true,
-            "mocha": true
-        },
-        "globals": {
-            "SELECT": true,
-            "INSERT": true,
-            "UPDATE": true,
-            "DELETE": true,
-            "CREATE": true,
-            "DROP": true,
-            "CDL": true,
-            "CQL": true,
-            "CXL": true,
-            "cds": true
-        },
-        "rules": {
-            "no-console": "off",
-            "require-atomic-updates": "off"
-        }
-    },
-    "cds": {
-        "requires": {
-            "db": {
-                "kind": "sql"
-            }
-        },
-        "hana": {
-            "deploy-format": "hdbtable"
-        }
-    }
+	"name": "sample-northwind-cap",
+	"version": "1.0.0",
+	"description": "A sample CAP project that mocks the Northwind OData service.",
+	"repository": "<Add your repository here>",
+	"license": "UNLICENSED",
+	"private": true,
+	"dependencies": {
+		"@cap-js-community/odata-v2-adapter": "^1.14.3",
+		"@sap/cds": "^8",
+		"@sap/xsenv": "latest",
+		"@sap/xssec": "latest",
+		"express": "^4",
+		"passport": "^0.6.0",
+		"@cap-js/hana": "^1"
+	},
+	"scripts": {
+		"start": "cds-serve",
+		"build": "mbt build --mtar sample-northwind-cap",
+		"deploy": "cf deploy mta_archives/sample-northwind-cap.mtar"
+	},
+	"devDependencies": {
+		"@cap-js/sqlite": "^1"
+	},
+	"cds": {
+		"sql": {
+			"native_hana_associations": false
+		},
+		"cov2ap": {
+			"plugin": true
+		},
+		"requires": {
+			"auth": {
+				"kind": "mocked"
+			}
+		}
+	}
 }

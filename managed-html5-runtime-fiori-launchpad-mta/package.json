@@ -1,16 +1,11 @@
 {
-  "name": "managed-fiori",
+  "name": "managed-html5-runtime-fiori-launchpad-mta",
   "version": "1.0.0",
   "scripts": {
-    "build": "mbt build",
-    "deploy:cf": "cross-var cf deploy mta_archives/managed-fiori_$npm_package_version.mtar",
-    "deploy": "run-s build deploy:cf",
-    "serve": "serve HTML5Module2/dist"
+    "build": "mbt build --mtar managed-html5-runtime-fiori-launchpad-mta",
+    "deploy": "cf deploy mta_archives/managed-html5-runtime-fiori-launchpad-mta.mtar"
   },
   "devDependencies": {
-    "cross-var": "^1.1.0",
-    "mbt": "^1.2.7",
-    "npm-run-all": "^4.1.5",
-    "serve": "^14.2.0"
+    "mbt": "latest"
   }
 }

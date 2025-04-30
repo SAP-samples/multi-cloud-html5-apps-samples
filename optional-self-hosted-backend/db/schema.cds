@@ -1,4 +1,4 @@
-namespace my.bookshop;
+namespace my.northwind;
 
 entity Products {
     key ProductID: Integer;
@@ -11,5 +11,10 @@ entity Products {
         UnitsOnOrder: Integer;
         ReorderLevel: Integer;
         Discontinued: Boolean;
+		Supplier: Association to Suppliers;
 }
 
+entity Suppliers {
+	key SupplierID: Integer;
+	Products: Association to Products;
+}

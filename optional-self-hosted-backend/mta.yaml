@@ -1,11 +1,7 @@
-## Generated mta.yaml based on template version 0.4.0
-## appName = cap-service
-## language=nodejs; multitenant=false
-## approuter=
 _schema-version: "3.1"
-ID: cap-service
+ID: "sample-northwind-cap"
 version: 1.0.0
-description: "A simple CAP project."
+description: "A sample CAP project that mocks the Northwind OData service."
 parameters:
   enable-parallel-deployments: true
 
@@ -13,51 +9,47 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm install --production
-        - npx -p @sap/cds-dk cds build --production
+        - npx cds build --production
 
 modules:
-  # --------------------- SERVER MODULE ------------------------
-  - name: cap-service-srv
-    # ------------------------------------------------------------
+  - name: sample-northwind-cap-srv
     type: nodejs
     path: gen/srv
     build-parameters:
-      ignore: ["default-env.json", "node_modules/"]
+      ignore:
+        - "default-env.json"
+        - "node_modules/"
     parameters:
       buildpack: nodejs_buildpack
       memory: 256M
       disk-quota: 1GB
     requires:
-      # Resources extracted from CAP configuration
-      - name: cap-service-db
-      # Manually add to bind to xsuaa
+      - name: sample-northwind-cap-db
       - name: managed-fiori-uaa
     provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+      - name: srv-api 
         properties:
           srv-url: ${default-url}
 
-  # -------------------- SIDECAR MODULE ------------------------
-  - name: cap-service-db-deployer
-    # ------------------------------------------------------------
+  - name: sample-northwind-cap-db-deployer
     type: hdb
     path: gen/db
     build-parameters:
-      ignore: ["default-env.json", "node_modules/"]
+      ignore:
+        - "default-env.json"
+        - "node_modules/"
     parameters:
       buildpack: nodejs_buildpack
       memory: 256M
       disk-quota: 256M
     requires:
-      # 'hana' and 'xsuaa' resources extracted from CAP configuration
-      - name: cap-service-db
+      - name: sample-northwind-cap-db
 
 resources:
   # services extracted from CAP configuration
   # 'service-plan' can be configured via 'cds.requires.<name>.vcap.plan'
   # ------------------------------------------------------------
-  - name: cap-service-db
+  - name: sample-northwind-cap-db
     # ------------------------------------------------------------
     type: com.sap.xs.hdi-container
     parameters:
@@ -68,7 +60,7 @@ resources:
 
   # manually add to replace the original destination deployed by
   # managed-html5-runtime-fiori-mta
-  - name: managed-fiori-destination
+  - name: sample-manage-products-destination
     type: org.cloudfoundry.managed-service
     requires:
       - name: srv-api
@@ -81,7 +73,7 @@ resources:
             existing_destinations_policy: update
             destinations:
               - Name: Northwind
-                Description: Self-hosted Northwind mockup CAP backend
+                Description: Self-hosted CAP backend instead of Northwind service
                 Authentication: NoAuthentication
                 ProxyType: Internet
                 Type: HTTP
@@ -91,7 +83,7 @@ resources:
 
   # manually add to bind to the xsuaa service deployed by
   # managed-html5-runtime-fiori-mta
-  - name: managed-fiori-uaa
+  - name: sample-manage-products-auth
     type: org.cloudfoundry.existing-service
     parameters:
-      service-name: managed-fiori-uaa
+      service-name: sample-manage-products-auth

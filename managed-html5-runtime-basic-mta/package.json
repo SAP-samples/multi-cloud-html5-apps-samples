@@ -4,7 +4,8 @@
     "mbt": "^1.2.7"
   },
   "scripts": {
-    "build": "mbt build"
+    "build": "mbt build --mtar managed-html5-runtime-basic-mta",
+	"deploy": "cf deploy mta_archives/managed-html5-runtime-basic-mta.mtar"
   },
   "version": "1.0.0"
 }

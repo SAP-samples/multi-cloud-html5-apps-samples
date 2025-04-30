@@ -1,16 +1,16 @@
 {
   "_version": "1.12.0",
   "sap.app": {
-    "id": "helloworld",
+    "id": "sample.basic.html5.mta",
     "type": "application",
-    "title": "Basic Web App",
+    "title": "Basic HTML5 App",
     "applicationVersion": {
-      "version": "1.0.0"
+      "version": "0.0.1"
     }
   },
   "sap.cloud": {
     "public": true,
-    "service": "basic.service"
+    "service": "multi-cloud-html5-apps-samples"
   },
   "sap.ui5": {
     "dependencies": {

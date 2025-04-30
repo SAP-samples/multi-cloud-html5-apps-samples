@@ -1,45 +1,45 @@
-ID: managed-fiori
+ID: "sample-manage-products-fiori-launchpad-mta"
 _schema-version: 3.2.0
 version: 1.0.0
 parameters:
   enable-parallel-deployments: true
 modules:
-  - name: HTML5Module1
+  - name: HTML5Module
     type: html5
-    path: HTML5Module1
+    path: HTML5Module
     build-parameters:
       builder: custom
       commands:
         - npm run build
       supported-platforms: []
-  - name: webapp-deployer
+  - name: sample-manage-products-deployer
     type: com.sap.application.content
     path: .
     requires:
-      - name: managed-fiori-html5-repo-host
+      - name: sample-manage-products-html5-repo-host
         parameters:
           content-target: true
     build-parameters:
       build-result: resources
       requires:
         - artifacts:
-            - HTML5Module1-content.zip
-          name: HTML5Module1
+            - HTML5Module-content.zip
+          name: HTML5Module
           target-path: resources/
-  - name: managed-fiori-destination-content
+  - name: sample-manage-products-destination-content
     type: com.sap.application.content
     build-parameters:
       no-source: true
     requires:
-      - name: managed-fiori-uaa
+      - name: sample-manage-products-auth
         parameters:
           service-key:
-            name: managed-fiori-uaa-key
-      - name: managed-fiori-html5-repo-host
+            name: sample-manage-products-auth-key
+      - name: sample-manage-products-html5-repo-host
         parameters:
           service-key:
-            name: managed-fiori-html5-repo-host-key
-      - name: managed-fiori-destination
+            name: sample-manage-products-html5-repo-host-key
+      - name: sample-manage-products-destination
         parameters:
           content-target: true
     parameters:
@@ -47,33 +47,36 @@ modules:
         instance:
           existing_destinations_policy: update
           destinations:
-            - Name: managed-fiori-destination-html5
-              ServiceInstanceName: managed-fiori-html5-repo-host
-              ServiceKeyName: managed-fiori-html5-repo-host-key
-              sap.cloud.service: cloud.service
-            - Name: managed-fiori-destination-uaa
+            - Name: sample-manage-products-destination-html5
+              ServiceInstanceName: sample-manage-products-html5-repo-host
+              ServiceKeyName: sample-manage-products-html5-repo-host-key
+              sap.cloud.service: multi-cloud-html5-apps-samples
+            - Name: sample-manage-products-destination-auth
               Authentication: OAuth2UserTokenExchange
-              ServiceInstanceName: managed-fiori-uaa
-              ServiceKeyName: managed-fiori-uaa-key
-              sap.cloud.service: cloud.service
+              ServiceInstanceName: sample-manage-products-auth
+              ServiceKeyName: sample-manage-products-auth-key
+              sap.cloud.service: multi-cloud-html5-apps-samples
 
 resources:
-  - name: managed-fiori-destination
+  - name: sample-manage-products-destination
     type: org.cloudfoundry.managed-service
     parameters:
       service-plan: lite
       service: destination
       path: ./destination.json
-  - name: managed-fiori-html5-repo-host
+  - name: sample-manage-products-html5-repo-host
     type: org.cloudfoundry.managed-service
     parameters:
       service-plan: app-host
       service: html5-apps-repo
       config:
         sizeLimit: 2
-  - name: managed-fiori-uaa
+  - name: sample-manage-products-auth
     type: org.cloudfoundry.managed-service
     parameters:
-      path: ./xs-security.json
-      service-plan: application
       service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: sample-manage-products-${org}-${space}
+        tenant-mode: dedicated

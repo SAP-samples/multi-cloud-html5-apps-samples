@@ -1,32 +1,19 @@
 {
-  "xsappname": "managed-fiori-uaa",
-  "tenant-mode": "dedicated",
-  "description": "Security profile of called application",
-  "scopes": [
-    {
-      "name": "uaa.user",
-      "description": "UAA"
-    },
-    {
-      "name": "$XSAPPNAME.CustomRole",
-      "description": "Admin"
-    }
-  ],
-  "role-templates": [
-    {
-      "name": "Token_Exchange",
-      "description": "UAA",
-      "scope-references": [
-        "uaa.user"
-      ]
-    },
-    {
-      "name": "CustomRole",
-      "description": "generated",
-      "scope-references": [
-        "$XSAPPNAME.CustomRole"
-      ],
-      "attribute-references": []
-    }
-  ]
+	"scopes": [
+		{
+			"name": "$XSAPPNAME.admin",
+			"description": "admin"
+		}
+	],
+	"attributes": [],
+	"role-templates": [
+		{
+			"name": "admin",
+			"description": "generated",
+			"scope-references": [
+				"$XSAPPNAME.admin"
+			],
+			"attribute-references": []
+		}
+	]
 }
