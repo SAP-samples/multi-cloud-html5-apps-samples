@@ -7,7 +7,7 @@
 
 ## Description
 
-This is an example of an SAP Fiori app ([HTML5Module1](./HTML5Module1/) that is configured to run with the managed application router. The app is exposed to SAP Build Work Zone, standard edition and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment and uses the Authentication & Authorization (XSUAA) and the destination service. It consumes the public [Northwind OData service](https://services.odata.org/v2/Northwind/Northwind.svc) - to use instead a CAP service with required authentication have look at [optional-self-hosted-backend](../optional-self-hosted-backend/).
+This is an example of an SAP Fiori app ([HTML5Module](./HTML5Module/) that is configured to run with the managed application router. The app is exposed to SAP Build Work Zone, standard edition and is visible in the content manager of the launchpad. The app is deployed to the HTML5 Application Repository via the Cloud Foundry environment and uses the Authentication & Authorization (XSUAA) and the destination service. It consumes the public [Northwind OData service](https://services.odata.org/v2/Northwind/Northwind.svc) - to use instead a CAP service with required authentication have look at [optional-self-hosted-backend](../optional-self-hosted-backend/).
 
 ## Download and Deployment
 1. Subscribe to the [SAP Build Work Zone, standard edition](https://developers.sap.com/tutorials/cp-portal-cloud-foundry-getting-started.html) if you haven't done so before.
@@ -23,52 +23,51 @@ This is an example of an SAP Fiori app ([HTML5Module1](./HTML5Module1/) that is 
     ```
 4. Deploy the project:
     ```
-    npm run deploy:cf
+    npm run deploy
     ```
     or
     ```
-    cf deploy mta_archives/managed-fiori_1.0.0.mtar
+    cf deploy mta_archives/managed-html5-runtime-fiori-launchpad-mta.mtar
     ```
 5. List the deployed HTML5 apps:
     ```
-    cf html5-list -di managed-fiori-destination -u --runtime launchpad
+    cf html5-list -di sample-manage-products-destination -u --runtime launchpad
     ```
 
 > Use the following command in case you use the Portal service
 >
->  `cf html5-list -di managed-fiori-destination -u --runtime cpp`
+>  `cf html5-list -di sample-manage-products-destination -u --runtime cpp`
 
 
 ## Check the Result
 
 ### List the Deployed HTML5 Apps
 ```
-$ cf html5-list -di managed-fiori-destination -u --runtime launchpad                               
-Getting list of HTML5 applications in org [cf-org-name] / space dev as firstname.lastname@domain.com...
+$ cf html5-list -di sample-manage-products-destination -u --runtime launchpad
+Getting list of HTML5 applications available via destinations in org e983544etrial / space dev as nicolai.schoenteich@sap.com...
 OK
 
-name             version   app-host-id                            service name    destination name                  last changed                    url   
-comsapfioriapp   1.0.0     b14e8922-77d3-42bf-8de0-2d9e8aa2c793   cloud.service   managed-fiori-destination-html5   Mon, 27 Mar 2023 11:20:17 GMT   https://nicolai-geburek-c8wbb6sc.launchpad.cfapps.eu10.hana.ondemand.com/97e830d3-6bc6-413a-9408-17a44bbaa3f7.cloudservice.comsapfioriapp-1.0.0/
+name                                    version   app-host-id                            service name                     destination name                           destination service name             last changed                    url   
+samplemanageproductsfiorilaunchpadmta   0.0.1     e436f722-995c-4e5e-86ce-fab1b1138738   multi-cloud-html5-apps-samples   sample-manage-products-destination-html5   sample-manage-products-destination   Wed, 30 Apr 2025 12:57:18 GMT   https://e983544etrial.launchpad.cfapps.us10.hana.ondemand.com/41648f37-046e-40cb-9537-88d604988f21.multi-cloud-html5-apps-samples.samplemanageproductsfiorilaunchpadmta-0.0.1/ 
 ```
-
-> You need to substitute `cpp` with `launchpad`, in case you use the Launchpad service (instead of the Portal service).
 
 ### List the Deployed MTA
 
 ```
-$ cf mta managed-fiori
-Showing health and status for multi-target app hello-world in org [cf-org-name] / space dev as firstname.lastname@domain.com...
+$ cf mta sample-manage-products-fiori-launchpad-mta
+Showing health and status for multi-target app sample-manage-products-fiori-launchpad-mta in org e983544etrial / space dev as nicolai.schoenteich@sap.com...
 OK
 Version: 1.0.0
+Namespace: 
 
 Apps:
-name   requested state   instances   memory   disk   urls   
+name   requested state   instances   memory   disk   urls
 
 Services:
-name                                service           plan          bound apps   last operation   
-managed-launchpad-destination       destination       lite                       update succeeded   
-managed-launchpad-html5-repo-host   html5-apps-repo   app-host                   update succeeded   
-managed-launchpad-uaa               xsuaa             application                update succeeded  
+name                                     service           plan          bound apps   last operation
+sample-manage-products-html5-repo-host   html5-apps-repo   app-host                   create succeeded
+sample-manage-products-destination       destination       lite                       create succeeded
+sample-manage-products-auth              xsuaa             application                create succeeded
 ```
 
 
