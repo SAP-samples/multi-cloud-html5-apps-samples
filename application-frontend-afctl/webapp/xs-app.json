@@ -1,0 +1,49 @@
+{
+	"welcomeFile": "/index.html",
+	"authenticationMethod": "route",
+	"logout": {
+		"logoutEndpoint": "/my/logout",
+		"logoutPage": "/logout-page.html"
+	},
+	"routes": [
+		{
+			"source": "^/northwind/(.*)$",
+			"target": "$1",
+			"destination": "northwind",
+			"authenticationType": "none",
+			"csrfProtection": false
+		},
+		{
+			"source": "^/logout-page.html$",
+			"service": "app-front",
+			"authenticationType": "none"
+		},
+		{
+			"source": "^/resources/(.*)$",
+			"target": "/resources/$1",
+			"authenticationType": "none",
+			"destination": "ui5"
+		},
+		{
+			"source": "^/test-resources/(.*)$",
+			"target": "/test-resources/$1",
+			"authenticationType": "none",
+			"destination": "ui5"
+		},
+		{
+			"source": "^/user-api(.*)",
+			"service": "sap-approuter-userapi"
+		},
+		{
+			"source": "^/index.html$",
+			"service": "app-front",
+			"cacheControl": "no-cache, no-store, must-revalidate"
+		},
+		{
+			"source": "^(.*)$",
+			"target": "$1",
+			"service": "app-front",
+			"authenticationType": "ias"
+		}
+	]
+}

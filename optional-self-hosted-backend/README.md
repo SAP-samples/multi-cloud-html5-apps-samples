@@ -1,31 +1,27 @@
 # Getting Started
 
-This is an example of how to consume a CAP service with authentication from on SAP Fiori app.
+This is a sample CAP application that mimics the Northwind OData service, both [V2](https://services.odata.org/V2/Northwind/Northwind.svc/) and [V4](https://services.odata.org/V4/Northwind/Northwind.svc/). It can optionally be used in conjunction with the [managed-html5-runtime-fiori-launchpad-mta](../managed-html5-runtime-fiori-launchpad-mta) to replace the original Northwind service - demonstrating how to consume CAP service from that sample.
 
-The [managed-html5-runtime-fiori-launchpad-mta](../managed-html5-runtime-fiori-launchpad-mta) sample consumes the [Northwind odata.org service](../managed-html5-runtime-fiori-mta/destination.json#L14), this is a public service without any kind of authentication.
-
-This project [mocks](./srv/cat-service.cds#L3) the Northwind service, the service is exposed as a CAP service with required [authentication](./srv/cat-service.cds#L4).
-Deploy of this package [override](./mta.yaml#L88) the URL of the original [Northwind](../managed-html5-runtime-fiori-mta/destination.json#L9) destination with the URL of the mockup service and set the  property [HTML5.ForwardAuthToken](./mta.yaml#L90) necessary to forward the authentication user from the SAP Fiori app to the CAP service.
-This property is documented at  [Configure Destinations](https://help.sap.com/viewer/ad4b9f0b14b0458cad9bd27bf435637d/LATEST/en-US/fab4035652cb4fc48503c65dc841d335.html)
-
-The MTA file [bind](./mta.yaml#L35) the CAP service to the xsuaa service already created by the [managed-html5-runtime-fiori-mta](../managed-html5-runtime-fiori-mta/mta.yaml#L74) package.
+The original public Northwind service does not require any authentication, whereas this CAP project requires XSUAA authentication. By deploying this CAP application in the same Cloud Foundry space as the [managed-html5-runtime-fiori-launchpad-mta](../managed-html5-runtime-fiori-launchpad-mta), you override the destination URL of the original Northwind service with the URL of this CAP service, and additionally set the [HTML5.ForwardAuthToken](./mta.yaml#L82) property. This allows you to consume the CAP service instead of the public Northwind service. The deployment of this CAP application also [binds](./mta.yaml#L87) the CAP service to the XSUAA service already created by the [managed-html5-runtime-fiori-mta](../managed-html5-runtime-fiori-mta/mta.yaml#L74) package.
 
 ## Deployment
 
-1. Deploy the `managed-html5-runtime-fiori-mta` to you BTP subaccount as explained in the package documentation
-2. Add the entitlement `hana hdi-shared` to your subaccount if you haven't done so before
-3. Build the project:
+1. Deploy the `managed-html5-runtime-fiori-mta` to your BTP subaccount as explained in the package documentation.
+1. Add the entitlement `hana hdi-shared` to your subaccount if you haven't done so already.
+1. Build the project:
    ```
-   mbt build
+   npm run build
    ```
-4. Deploy in the same subaccount/space of the `managed-html5-runtime-fiori-mta` package:
+1. Deploy in the same subaccount/space as the `managed-html5-runtime-fiori-mta` package:
    ```
-   cf deploy mta_archives/cap-service_1.0.0.mtar
+   cf deploy mta_archives/sample-northwind-cap.mtar
    ```
+
 ## Check the Result
 
-### Check the HTML5 App
-To be sure to use the new mock service open an incognito browser window and then access the URL of the HTML5 App of the `managed-html5-runtime-fiori-mta` package, you should see the same data, however the product name of the first product will be *Hello from CAP*, this is the mark that the data are read from the CAP service.
+### Check the SAP Fiori Application
+
+To make sure to use the new mock service, open an incognito browser window and access the URL of the HTML5 App of the `managed-html5-runtime-fiori-mta` package. You should see (almost) the same data as before, however the product name of the first product will be *Hello from CAP* - this is the mark that the data is read from the CAP service.
 
 ![image](https://user-images.githubusercontent.com/51169423/132773806-f1964c2f-4679-4f7c-988a-a55824729f55.png)
 

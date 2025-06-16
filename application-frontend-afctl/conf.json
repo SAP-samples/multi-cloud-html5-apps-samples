@@ -1,0 +1,12 @@
+{
+  "destinations": [
+    {
+      "name": "northwind",
+      "url": "https://services.odata.org"
+    },
+    {
+      "name": "ui5",
+      "url": "https://ui5.sap.com"
+    }
+  ]
+}

@@ -28,11 +28,6 @@
 		},
 		"cov2ap": {
 			"plugin": true
-		},
-		"requires": {
-			"auth": {
-				"kind": "mocked"
-			}
 		}
 	}
 }

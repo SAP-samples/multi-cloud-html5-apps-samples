@@ -1,0 +1,12 @@
+{
+	"name": "application-frontend-afctl",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "ui5 serve",
+		"build": "ui5 build",
+		"deploy": "afctl push dist -c conf.json -l"
+	},
+	"dependencies": {
+		"@ui5/cli": "latest"
+	}
+}

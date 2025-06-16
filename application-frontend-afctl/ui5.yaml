@@ -1,0 +1,4 @@
+specVersion: "3.2"
+metadata:
+  name: products-cli
+type: application
