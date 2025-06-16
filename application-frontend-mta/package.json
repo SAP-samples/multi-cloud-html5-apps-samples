@@ -1,0 +1,12 @@
+{
+	"name": "application-frontend-mta",
+	"version": "1.0.0",
+	"scripts": {
+		"start": "npm start --prefix uimodule",
+		"build": "mbt build --mtar products",
+		"deploy": "cf deploy mta_archives/products.mtar"
+	},
+	"dependencies": {
+		"mbt": "latest"
+	}
+}

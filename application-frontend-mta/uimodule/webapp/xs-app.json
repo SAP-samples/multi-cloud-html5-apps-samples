@@ -1,0 +1,26 @@
+{
+	"welcomeFile": "/index.html",
+	"authenticationMethod": "route",
+	"routes": [
+		{
+			"source": "^/Northwind/(.*)$",
+			"target": "/Northwind/$1",
+			"destination": "northwind",
+			"authenticationType": "none",
+			"csrfProtection": false
+		},
+		{
+			"source": "^/index.html$",
+			"target": "/index.html",
+			"service": "app-front",
+			"cacheControl": "no-cache, no-store, must-revalidate",
+			"authenticationType": "ias"
+		},
+		{
+			"source": "^(.*)$",
+			"target": "$1",
+			"service": "app-front",
+			"authenticationType": "ias"
+		}
+	]
+}

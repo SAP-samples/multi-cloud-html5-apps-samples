@@ -1,0 +1,38 @@
+{
+    "name": "sample-manage-products-uimodule",
+    "version": "0.0.1",
+    "private": true,
+    "description": "uimodule description",
+    "keywords": [
+        "ui5",
+        "openui5",
+        "sapui5"
+    ],
+    "main": "webapp/index.html",
+    "devDependencies": {
+        "@openui5/types": "^1.135.0",
+        "@sap-ux/eslint-plugin-fiori-tools": "^0.4.0",
+        "@sap/ux-specification": "UI5-1.128",
+        "@sap/ux-ui5-tooling": "1",
+        "@sapui5/types": "~1.128.0",
+        "@typescript-eslint/eslint-plugin": "^7.1.1",
+        "@typescript-eslint/parser": "^7.1.1",
+        "@ui5/cli": "^3.0.0",
+        "@ui5/linter": "latest",
+        "cap-service": "file:../../optional-self-hosted-backend",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "ui5-middleware-cap": "^3.3.0",
+        "ui5-task-zipper": "^3.4.1",
+        "ui5-tooling-transpile": "^3.3.7"
+    },
+    "scripts": {
+        "start": "ui5 serve --config=ui5.yaml --open index.html",
+        "build": "ui5 build",
+        "ts-typecheck": "tsc --noEmit",
+        "prestart": "npm run ts-typecheck",
+        "prebuild": "npm run ts-typecheck",
+        "ui5lint": "ui5lint"
+    },
+    "sapux": true
+}

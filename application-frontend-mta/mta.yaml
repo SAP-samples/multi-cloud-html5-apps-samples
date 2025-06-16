@@ -1,0 +1,55 @@
+_schema-version: '3.1'
+ID: "sample-manage-products-app-front-mta"
+version: 1.0.0
+description: "A sample MTA-based application using the Application Frontend service."
+
+modules:
+  - name: sample-manage-products-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: sample-manage-products-auth
+      - name: sample-manage-products-app-front
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - sample-manage-products-uimodule.zip
+          name: sample-manage-products-uimodule
+          target-path: resources/
+    parameters:
+      config:
+        destinations:
+        - name: northwind
+          url:  https://services.odata.org
+
+  - name: sample-manage-products-uimodule
+    type: html5
+    path: uimodule
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build
+      supported-platforms: []
+
+resources:
+  - name: sample-manage-products-app-front
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: app-front
+      service-name: sample-manage-products-app-front-service
+      service-plan: developer
+
+  - name: sample-manage-products-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: sample-manage-products-${org}-${space}
+        tenant-mode: dedicated
