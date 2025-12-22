@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Welcome</title>
+    <meta charset="UTF-8">
+ 
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        try {
+            const res = await fetch("/user-api/currentUser");
+            const user = await res.json();
+            document.getElementById("greeting").innerText = `Hi ${user.firstname} 👋 in your custom env!`;
+        } catch (err) {
+            console.error(err);
+            document.getElementById("greeting").innerText = `Hi there 👋 in your custom env!`;
+        }
+      });
+    </script>
+  </head>
+ 
+  <body>
+    <div id="greeting"></div>
+  </body>
+</html>

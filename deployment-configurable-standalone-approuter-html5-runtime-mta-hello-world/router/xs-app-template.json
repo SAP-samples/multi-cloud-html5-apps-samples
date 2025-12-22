@@ -1,0 +1,16 @@
+{
+  "welcomeFile": "/${WELCOME_FILE}",
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "/user-api/currentUser$",
+      "target": "/currentUser",
+      "service": "sap-approuter-userapi"
+    },
+    {
+      "source": "(.*)",
+      "target": "/helloworldapprouter/$1",
+      "service": "html5-apps-repo-rt"
+    }
+  ]
+}

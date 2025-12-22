@@ -56,6 +56,8 @@ For information about how to upload a react-based application to the HTML5 Appli
 
 - [Basic App stored on HTML5 Application Repository, using  XSUAA service, and destination service](standalone-approuter-html5-runtime-mta-hello-world)
 
+- [Deployment configurable basic app stored on HTML5 Application Repository, using  XSUAA service, and destination service](deployment-configurable-standalone-approuter-html5-runtime-mta-hello-world)
+
 - [Multi-tenant SAP Fiori app on HTML5 Application Repository](standalone-mtx-approuter)
 
 - [SAP Fiori app integrated with SAP Cloud Portal service](standalone-portal-mta)

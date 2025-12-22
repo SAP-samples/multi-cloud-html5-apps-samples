@@ -1,0 +1,9 @@
+{
+  "name": "html5module",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "npm run clean && npm run zip",
+    "zip": "npx bestzip HTML5Module-content.zip *",
+    "clean": "npx rimraf HTML5Module-content.zip dist"
+  }
+}

@@ -1,0 +1,11 @@
+{
+	"name": "appouter",
+	"description": "Node.js based application router service for html5-apps",
+	"dependencies": {
+		"@sap/approuter": "latest",
+		"envsub": "^4.1.0"
+	},
+	"scripts": {
+		"start": "envsub xs-app-template.json xs-app.json && node node_modules/@sap/approuter/approuter.js"
+	}
+}

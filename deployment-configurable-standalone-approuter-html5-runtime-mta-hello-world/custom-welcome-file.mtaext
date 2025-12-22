@@ -1,0 +1,8 @@
+ID: standalone-hello-world-custom
+extends: standalone-hello-world
+_schema-version: "3.1"
+
+modules:
+  - name: html5_app_router
+    properties:
+      WELCOME_FILE: custom.html
