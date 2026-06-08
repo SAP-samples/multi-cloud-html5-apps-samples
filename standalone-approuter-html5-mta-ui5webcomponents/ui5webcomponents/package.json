@@ -16,6 +16,6 @@
         "@ui5/webcomponents": "^1.0.2"
     },
     "devDependencies": {
-        "vite": "^2.7.2"
+        "vite": "^8"
     }
 }
